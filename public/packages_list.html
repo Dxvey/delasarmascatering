@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Packages - De Las Armas</title>
+    <link rel="icon" href="assets/img/de las armasa logo 3.png">
+    <link rel="stylesheet" href="assets/css/packages_list.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav class="main-nav">
+                <ul class="nav-left">
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="packages.html">Packages</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                </ul>
+                <div class="nav-center">
+                    <h1>DE LAS ARMAS</h1>
+                    <p>Catering & Event Services</p>
+                </div>
+                <ul class="nav-right">
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="schedule.html">Schedule</a></li>
+                    <li><a href="otherservices.html">Other Services</a></li>
+                    <li><a href="#">User</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="title-container">
+            <h1 class="main-title">DE LAS ARMAS</h1>
+            <p class="sub-title">CHOOSE PACKAGE YOU WANT TO AVAIL!</p>
+        </div>
+
+        <div class="cards-container">
+        <a href="javascript:void(0)" onclick="quickSelect('Corporate Package', 55000, 'corporate.html')" class="pkg-card">
+            <img src="assets/img/Corporate packages.png" alt="Corporate Packages">
+            <div class="card-text"><span>CORPORATE<br>PACKAGES</span></div>
+        </a>
+
+        <a href="javascript:void(0)" onclick="quickSelect('Wedding Package', 49500, 'wedding.html')" class="pkg-card">
+            <img src="assets/img/Wedding packages.png" alt="Wedding Packages">
+            <div class="card-text"><span>WEDDING<br>PACKAGES</span></div>
+        </a>
+
+        <a href="javascript:void(0)" onclick="quickSelect('Debut Package', 30000, 'debut.html')" class="pkg-card">
+            <img src="assets/img/Debut packages.png" alt="Debut Packages">
+            <div class="card-text"><span>DEBUT<br>PACKAGES</span></div>
+        </a>
+
+        <a href="javascript:void(0)" onclick="quickSelect('Birthday Package', 60000, 'birthday.html')" class="pkg-card">
+            <img src="assets/img/Birthday packages.png" alt="Birthday Packages">
+            <div class="card-text"><span>BIRTHDAY<br>PACKAGES</span></div>
+        </a>
+        
+        <a href="basic.html" class="pkg-card">
+            <img src="assets/img/Basic packages.png" alt="Basic Packages">
+            <div class="card-text"><span>BASIC<br>PACKAGES</span></div>
+        </a>
+
+        <a href="all-in.html" class="pkg-card">
+            <img src="assets/img/All-in packages.png" alt="All-In Packages">
+            <div class="card-text"><span>ALL-IN<br>PACKAGES</span></div>
+        </a>
+
+        <a href="special-promo.html" class="pkg-card">
+            <img src="assets/img/Special packages.png" alt="Special Packages">
+            <div class="card-text"><span>SPECIAL<br>PACKAGES</span></div>
+        </a>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-brand">
+            <h4>DE LAS ARMAS</h4>
+            <p>Catering & Event Services</p>
+        </div>
+        <div class="footer-divider"></div>
+        <div class="footer-links">
+            <a href="#">Terms</a>
+            <a href="#">Privacy</a>
+        </div>
+    </footer>
+    <script>
+    function quickSelect(name, price, url) {
+
+        const pkg = {
+            name: name,
+            price: parseInt(price),
+            qty: 1
+        };
+
+
+        localStorage.setItem('selectedPackage', JSON.stringify(pkg));
+
+        window.location.href = url; 
+        
+    }
+    </script>
+</body>
+</html>

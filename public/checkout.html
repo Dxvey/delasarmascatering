@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - De Las Armas</title>
+    <link rel="icon" href="assets/img/de las armasa logo 3.png">
+    <link rel="stylesheet" href="assets/css/checkout.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="checkout-header">
+        <div class="header-container">
+            <div class="header-left">
+                <img src="assets/img/de las armasa logo 3 (1).png" alt="Logo" class="header-logo">
+                <h1>DE LAS ARMAS <span style="font-size: 16px; font-style: italic; font-weight: normal;">Catering</span></h1>
+            </div>
+            <div class="header-right">
+                <nav>
+                    <a href="home.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="packages_list.html">Packages</a>
+                    <a href="contact.html">Contact Us</a>
+                </nav>
+                <div class="brand-text">
+                    <h4>DE LAS ARMAS</h4>
+                    <p>Catering & Event Services</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="checkout-main">
+        <div class="form-container">
+            <h2 class="page-title">PERSONAL INFORMATION</h2>
+
+            <form id="checkoutForm" class="checkout-form" action="payment.html" method="post">
+                <div class="form-group">
+                    <label>First Name</label>
+                    <input type="text" id="firstName" name="firstName" required pattern="[A-Za-z ]{2,}" title="Minimum 2 letters, no numbers">
+                </div>
+                <div class="form-group">
+                    <label>Last Name</label>
+                    <input type="text" id="lastName" name="lastName" required pattern="[A-Za-z ]{2,}">
+                </div>
+                <div class="form-group">
+                    <label>Middle Name</label>
+                    <input type="text" id="middleName" name="middleName">
+                </div>
+
+                <div class="form-group span-two">
+                    <label>Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Contact #</label>
+                    <input type="tel" id="contact" name="contact"
+                        inputmode="numeric"
+                        maxlength="11"
+                        required
+                        placeholder="09XXXXXXXXX"
+                        pattern="^09\d{9}$"
+                        title="Please enter a valid PH mobile number">
+                </div>
+
+                <div class="form-group span-two">
+                    <label>Address of the Event</label>
+                    <input type="text" id="address" name="address" required minlength="10">
+                </div>
+
+                <div class="form-group date-group">
+                    <label>Target Date of the Event</label>
+                    <div class="date-inputs">
+                        <input type="text" id="day" placeholder="DD" maxlength="2" inputmode="numeric" required>
+                        <input type="text" id="month" placeholder="MM" maxlength="2" inputmode="numeric" required>
+                        <input type="text" id="year" placeholder="YYYY" maxlength="4" inputmode="numeric" required>
+                    </div>
+                    <small id="dateError" style="color: #e74c3c; display: none;">Date must be in the future.</small>
+                </div>
+
+                <div class="form-group full-width">
+                    <label>Message/Concern (Optional)</label>
+                    <textarea id="message" name="message" maxlength="500"></textarea>
+                </div>
+
+                <div class="button-row">
+                    <button type="submit" class="btn-continue">CONTINUE TO PAYMENT</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <footer class="page-footer">
+        <div class="footer-brand">
+            <h4>DE LAS ARMAS</h4>
+            <p>Catering & Event Services</p>
+        </div>
+        <div class="footer-links">
+            <div class="v-line"></div>
+            <a href="#">Terms</a>
+            <a href="#">Privacy</a>
+        </div>
+    </footer>
+    <script>
+    document.getElementById('checkoutForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+
+        // 1. Get User and Order Data from Storage
+        const userId = localStorage.getItem('currentUserId');
+        const selectedPackage = JSON.parse(localStorage.getItem('selectedPackage'));
+        const addons = JSON.parse(localStorage.getItem('myCart')) || [];
+        
+        // Calculate total strictly for the backend
+        const packageTotal = selectedPackage ? (selectedPackage.price * selectedPackage.qty) : 0;
+        const addonsTotal = addons.reduce((sum, item) => sum + (item.price * item.qty), 0);
+        const grandTotal = packageTotal + addonsTotal;
+
+        // 2. Format Date and Validate
+        const d = document.getElementById('day').value.padStart(2, '0');
+        const m = document.getElementById('month').value.padStart(2, '0');
+        const y = document.getElementById('year').value;
+
+        // Check if date is complete
+        if (!d || !m || !y) {
+            alert("Please enter a complete date (DD/MM/YYYY)");
+            return;
+        }
+
+        // Create date object from input
+        const selectedDate = new Date(`${y}-${m}-${d}`);
+        const today = new Date();
+        
+        // Reset time part for accurate date comparison
+        today.setHours(0, 0, 0, 0);
+        selectedDate.setHours(0, 0, 0, 0);
+        
+        // Calculate the minimum allowed date (3 days from now)
+        const minDate = new Date(today);
+        minDate.setDate(today.getDate() + 3);
+        
+        console.log("Today:", today.toDateString());
+        console.log("Selected Date:", selectedDate.toDateString());
+        console.log("Minimum Date (3 days ahead):", minDate.toDateString());
+
+        // Validate date is at least 3 days in advance
+        if (selectedDate < minDate) {
+            alert("⚠️ You need to reserve at least 3 days before the event date.\n\nPlease select a date that is at least 3 days from now.");
+            
+            // Highlight the date inputs
+            document.getElementById('day').style.borderColor = '#e74c3c';
+            document.getElementById('month').style.borderColor = '#e74c3c';
+            document.getElementById('year').style.borderColor = '#e74c3c';
+            
+            // Show error message
+            const dateError = document.getElementById('dateError');
+            dateError.textContent = "You need to reserve at least 3 days before the event date";
+            dateError.style.display = 'block';
+            
+            return;
+        }
+
+        // Clear any previous error styling
+        document.getElementById('day').style.borderColor = '';
+        document.getElementById('month').style.borderColor = '';
+        document.getElementById('year').style.borderColor = '';
+        document.getElementById('dateError').style.display = 'none';
+
+        // 3. Construct Order Payload
+        const fullOrderData = {
+            userId: userId,
+            customerDetails: {
+                fullName: `${document.getElementById('firstName').value} ${document.getElementById('lastName').value}`,
+                email: document.getElementById('email').value.trim(),
+                contact: document.getElementById('contact').value,
+                address: document.getElementById('address').value
+            },
+            eventDate: `${y}-${m}-${d}`,
+            package: selectedPackage,
+            addons: addons,
+            totalAmount: grandTotal,
+            message: document.getElementById('message').value
+        };
+
+        try {
+            // 4. Send to Backend
+            const response = await fetch('http://localhost:3001/api/orders', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(fullOrderData)
+            });
+
+            if (response.ok) {
+                const result = await response.json();
+                localStorage.setItem('lastOrderId', result.orderId);
+                window.location.href = 'payment.html';
+            } else {
+                alert("Failed to save order to database.");
+            }
+        } catch (err) {
+            console.error("Full Error Object:", err);
+            alert("Connection Error: " + err.message);
+        }
+    });
+
+    // Add real-time date validation as user types
+    function validateDateInput() {
+        const d = document.getElementById('day').value.padStart(2, '0');
+        const m = document.getElementById('month').value.padStart(2, '0');
+        const y = document.getElementById('year').value;
+        
+        if (d.length === 2 && m.length === 2 && y.length === 4) {
+            const selectedDate = new Date(`${y}-${m}-${d}`);
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+            selectedDate.setHours(0, 0, 0, 0);
+            
+            const minDate = new Date(today);
+            minDate.setDate(today.getDate() + 3);
+            
+            const dateError = document.getElementById('dateError');
+            
+            if (selectedDate < minDate) {
+                dateError.textContent = "⚠️ Must be at least 3 days from today";
+                dateError.style.display = 'block';
+                document.getElementById('day').style.borderColor = '#e74c3c';
+                document.getElementById('month').style.borderColor = '#e74c3c';
+                document.getElementById('year').style.borderColor = '#e74c3c';
+            } else {
+                dateError.style.display = 'none';
+                document.getElementById('day').style.borderColor = '#2ecc71';
+                document.getElementById('month').style.borderColor = '#2ecc71';
+                document.getElementById('year').style.borderColor = '#2ecc71';
+            }
+        }
+    }
+
+    // Add event listeners for real-time validation
+    document.getElementById('day').addEventListener('input', validateDateInput);
+    document.getElementById('month').addEventListener('input', validateDateInput);
+    document.getElementById('year').addEventListener('input', validateDateInput);
+
+    // Also validate when leaving the fields
+    document.getElementById('day').addEventListener('blur', validateDateInput);
+    document.getElementById('month').addEventListener('blur', validateDateInput);
+    document.getElementById('year').addEventListener('blur', validateDateInput);
+
+    // Add this in your checkout form submission
+document.getElementById('checkoutForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // Store customer details
+    const customerDetails = {
+        fullName: `${document.getElementById('firstName').value} ${document.getElementById('lastName').value}`,
+        email: document.getElementById('email').value,
+        contact: document.getElementById('contact').value,
+        address: document.getElementById('address').value
+    };
+    
+    localStorage.setItem('customerDetails', JSON.stringify(customerDetails));
+    
+    // Store event date
+    const day = document.getElementById('day').value.padStart(2, '0');
+    const month = document.getElementById('month').value.padStart(2, '0');
+    const year = document.getElementById('year').value;
+    const eventDate = `${year}-${month}-${day}`;
+    
+    localStorage.setItem('eventDate', eventDate);
+    localStorage.setItem('eventAddress', document.getElementById('address').value);
+    
+    // Continue with order submission...
+});
+    </script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debut Package - De Las Armas</title>
+    <link rel="icon" href="assets/img/de las armasa logo 3.png">
+    <link rel="stylesheet" href="assets/css/debut.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="package-header">
+        <div class="header-content">
+            <a href="packages_list.html" class="back-button">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+            <div class="header-logo-section">
+                <img src="assets/img/de las armasa logo 3 (1).png" alt="Logo" class="pkg-logo">
+                <div class="header-text">
+                    <h3>DE LAS ARMAS</h3>
+                    <p>Catering & Event Services</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="package-main">
+        <div class="content-grid">
+            
+            <div class="col-text">
+                <div class="info-section">
+                    <h1 class="pkg-title">Debut Package</h1>
+                    <h2 class="pkg-price">₱30,000 – Good for 50 guests</h2>
+                    <div class="pkg-lists">
+                        <p class="list-label">Inclusions:</p>
+                        <ul class="inclusions-list">
+                            <li><i class="fas fa-check"></i> Complete catering setup</li>
+                            <li><i class="fas fa-check"></i> Backdrop styling</li>
+                            <li><i class="fas fa-check"></i> Basic lights and sound</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="img-container img-1">
+                    <img src="assets/img/Deb 1.png" alt="Debutante">
+                </div>
+            </div>
+
+            <div class="col-middle">
+                <div class="img-container img-2">
+                    <img src="assets/img/Deb 2.png" alt="Catering">
+                </div>
+                <div class="img-container img-3">
+                    <img src="assets/img/Deb 3.png" alt="Event Tech">
+                </div>
+            </div>
+
+            <div class="col-right">
+                <div class="img-container img-4">
+                    <img src="assets/img/Deb 4.png" alt="Styling 1">
+                </div>
+                <div class="img-container img-5">
+                    <img src="assets/img/Deb 5.png" alt="Styling 2">
+                </div>
+                <div class="img-container img-6">
+                    <img src="assets/img/Deb 6.png" alt="Styling 3">
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-brand">
+            <h4>DE LAS ARMAS</h4>
+            <p>Catering & Event Services</p>
+        </div>
+        <div class="footer-divider"></div>
+        <div class="footer-links">
+            <a href="#">Terms</a>
+            <a href="#">Privacy</a>
+        </div>
+        <div class="action-buttons">
+            <button class="btn-pkg btn-addons" onclick="window.location.href='menu.html'">Add-Ons</button>
+            <button class="btn-pkg btn-cart" onclick="window.location.href='cart.html'">View Cart</button>
+        </div>
+    </footer>
+    <script>
+    function addPackageToCart(name, price) {
+        const pkg = {
+            name: name,
+            price: parseInt(price),
+            qty: 1
+        };
+        
+        localStorage.setItem('selectedPackage', JSON.stringify(pkg));
+        
+        alert(name + " added to cart!");
+        
+        window.location.href = "cart.html";
+    }
+    </script>
+</body>
+</html>

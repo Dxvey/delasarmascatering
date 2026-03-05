@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>De Las Armas - Schedule</title>
+    <link rel="icon" href="assets/img/de las armasa logo 3.png">
+    <link rel="stylesheet" href="assets/css/schedule.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="main-nav">
+                <ul class="nav-left">
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="packages.html">Packages</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                </ul>
+                <div class="nav-center">
+                    <h1>DE LAS ARMAS</h1>
+                    <p>Catering & Event Services</p>
+                </div>
+                <ul class="nav-right">
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="schedule.html" class="active">Schedule</a></li>
+                    <li><a href="otherservices.html">Other Services</a></li>
+                    <li><a href="#" id="userNavBtn">User</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="schedule-section">
+            <div class="container">
+                <h1>Schedule for the Month</h1>
+                
+                <div class="content-row">
+                    <div class="calendar-wrapper">
+                        <div class="calendar-label">
+                            <h2>Calendar</h2>
+                            <div class="line"></div>
+                        </div>
+
+                        <div class="calendar-box">
+                            <div class="calendar-header">
+                                <h2 id="monthDisplay">March 2026</h2>
+                                <div class="arrows">
+                                    <span id="prevMonth" style="cursor:pointer">&#10094;</span>
+                                    <span id="nextMonth" style="cursor:pointer">&#10095;</span>
+                                </div>
+                            </div>
+                            
+                            <div class="calendar-grid" id="dynamicCalendarGrid">
+                                <div class="weekday">Su</div>
+                                <div class="weekday">Mo</div>
+                                <div class="weekday">Tu</div>
+                                <div class="weekday">We</div>
+                                <div class="weekday">Th</div>
+                                <div class="weekday">Fr</div>
+                                <div class="weekday">Sa</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="legend-wrapper">
+                        <div class="legend-item">
+                            <div class="box free">1</div>
+                            <p>Free Schedule</p>
+                        </div>
+                        <div class="legend-item">
+                            <div class="box busy">1</div>
+                            <p>Fairly Busy Schedule</p>
+                        </div>
+                        <div class="legend-item">
+                            <div class="box full">1</div>
+                            <p>Full Schedule</p>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-vector">
+            <img src="assets/img/Vector 7.png" alt="Footer Wave">
+        </div>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="assets/img/de las armasa logo 3 (1).png" alt="">
+                </div>
+                <div class="footer-section">
+                    <a href="home.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="schedule.html">Schedule</a>
+                    <a href="contact.html">Contact Us</a>
+                </div>
+                <div class="footer-section">
+                    <a href="packages.html">Packages</a>
+                    <a href="otherservices.html">Tables & Chairs</a>
+                    <a href="otherservices.html">Backdrops</a>
+                    <a href="gallery.html">Gallery</a>
+                </div>
+                <div class="footer-section">
+                    <a href="packages.html">Wedding Package</a>
+                    <a href="packages.html">Debut Package</a>
+                    <a href="packages.html">Corporate Package</a>
+                </div>
+                <div class="footer-section">
+                    <a href="#"><br></a>
+                    <a href="home.html">Reviews</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="settings-popup" id="settingsPopup">
+        <div class="user-info">
+            <img src="assets/img/Avatar 1.png" alt="John Doe" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iIzE5Mjc2RiI+PHBhdGggZD0iTTEyIDJDMi40OCAyIDIgNi40OCAyIDEyczQuNDggMTAgMTAgMTAgMTAtNC40OCAxMC0xMFMyMS41MiAyIDEyIDJ6bTAgM2MzLjE5IDAgNS44MiAxLjU4IDcuNDIgNGExMS45MTEgMTEuOTExIDAgMCAwLTE0Ljg0IDBDNi4xOCA2LjU4IDguODEgNSAxMiA1em0wIDJjLTEuNjYgMC0zIDEuMzQtMyAzczEuMzQgMyAzIDMgMy0xLjM0IDMtMy0xLjM0LTMtMy0M3ptMCAxMWMtMy4xOSAwLTUuODItMS41OC03LjQyLTRhMTEuOTExIDExLjkxMSAwIDAgMCAxNC44NCAwQzE3LjgyIDE4LjQyIDE1LjE5IDIwIDEyIDIweiIvPjwvc3ZnPg=='">
+            <h3>John Doe</h3>
+            <p>john.doe@gmail.com</p>
+        </div>
+        <hr class="settings-divider">
+        <ul class="settings-menu">
+            <li><a href="#" id="editProfileBtn"><i class="fa-solid fa-user"></i> Edit Profile</a></li>
+            <li><a href="#" id="changeNameBtn"><i class="fa-solid fa-pen-to-square"></i> Change Name</a></li>
+            <li><a href="#" id="changePasswordBtn"><i class="fa-solid fa-lock"></i> Change Password</a></li>
+            <li><a href="index.html"><i class="fa-solid fa-right-from-bracket"></i> Log Out</a></li>
+        </ul>
+    </div>
+
+    <div class="center-modal-overlay" id="editProfileModal">
+        <div class="center-modal">
+            <span class="close-modal">&times;</span>
+            <h3>Edit Profile</h3>
+            <form>
+                <label>Profile Picture URL:</label>
+                <input type="text" placeholder="Enter new image URL">
+                <button type="submit" class="modal-btn">Save Changes</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="center-modal-overlay" id="changeNameModal">
+        <div class="center-modal">
+            <span class="close-modal">&times;</span>
+            <h3>Change Name</h3>
+            <form>
+                <label>New Name:</label>
+                <input type="text" placeholder="Enter your new name">
+                <button type="submit" class="modal-btn">Save Name</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="center-modal-overlay" id="changePasswordModal">
+        <div class="center-modal">
+            <span class="close-modal">&times;</span>
+            <h3>Change Password</h3>
+            <form>
+                <label>Current Password:</label>
+                <input type="password" placeholder="Enter current password">
+                <label>New Password:</label>
+                <input type="password" placeholder="Enter new password">
+                <label>Confirm New Password:</label>
+                <input type="password" placeholder="Confirm new password">
+                <button type="submit" class="modal-btn">Update Password</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const userNavBtn = document.getElementById('userNavBtn');
+            const settingsPopup = document.getElementById('settingsPopup');
+
+            const editProfileBtn = document.getElementById('editProfileBtn');
+            const changeNameBtn = document.getElementById('changeNameBtn');
+            const changePasswordBtn = document.getElementById('changePasswordBtn');
+
+            const editProfileModal = document.getElementById('editProfileModal');
+            const changeNameModal = document.getElementById('changeNameModal');
+            const changePasswordModal = document.getElementById('changePasswordModal');
+
+            const closeBtns = document.querySelectorAll('.close-modal');
+
+            userNavBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                settingsPopup.classList.toggle('active');
+            });
+
+            document.addEventListener('click', function(e) {
+                if (!userNavBtn.contains(e.target) && !settingsPopup.contains(e.target)) {
+                    settingsPopup.classList.remove('active');
+                }
+            });
+
+            function openCenterModal(modal) {
+                settingsPopup.classList.remove('active');
+                modal.classList.add('active');
+            }
+
+            editProfileBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                openCenterModal(editProfileModal);
+            });
+
+            changeNameBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                openCenterModal(changeNameModal);
+            });
+
+            changePasswordBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                openCenterModal(changePasswordModal);
+            });
+
+            closeBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    this.closest('.center-modal-overlay').classList.remove('active');
+                });
+            });
+
+            window.addEventListener('click', function(e) {
+                if (e.target.classList.contains('center-modal-overlay')) {
+                    e.target.classList.remove('active');
+                }
+            });
+        });
+        
+        let currentDisplayDate = new Date(2026, 2, 1); // March 2026
+
+        async function renderCalendar() {
+            const grid = document.getElementById('dynamicCalendarGrid');
+            const monthDisplay = document.getElementById('monthDisplay');
+
+            // Keep only weekday headers
+            const weekdays = grid.querySelectorAll('.weekday');
+            grid.innerHTML = '';
+            weekdays.forEach(day => grid.appendChild(day));
+
+            const year = currentDisplayDate.getFullYear();
+            const month = currentDisplayDate.getMonth();
+
+            // Update month header
+            const monthName = currentDisplayDate.toLocaleString('default', { month: 'long' });
+            monthDisplay.innerText = `${monthName} ${year}`;
+
+            const firstDayIndex = new Date(year, month, 1).getDay();
+            const lastDay = new Date(year, month + 1, 0).getDate();
+
+            // Fetch calendar events (if API fails, just empty array)
+            let orderData = [];
+            try {
+                const response = await fetch('/api/calendar-events');
+                if (response.ok) orderData = await response.json();
+            } catch (err) {
+                console.error("API fetch failed:", err);
+            }
+
+            // Add blank days for previous month
+            for (let x = 0; x < firstDayIndex; x++) {
+                const emptyDiv = document.createElement('div');
+                emptyDiv.classList.add('day', 'fade');
+                grid.appendChild(emptyDiv);
+            }
+
+            // Add actual days
+            for (let i = 1; i <= lastDay; i++) {
+                const dayDiv = document.createElement('div');
+                dayDiv.classList.add('day');
+
+                // Format date string
+                const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(i).padStart(2, '0')}`;
+                dayDiv.setAttribute('data-date', dateStr);
+                dayDiv.innerText = i;
+
+                // Apply color based on orders
+                const match = orderData.find(d => d.order_date === dateStr);
+                const count = match ? match.total_orders : 0;
+
+                if (count >= 2) dayDiv.classList.add('full');
+                else if (count === 1) dayDiv.classList.add('busy');
+                else dayDiv.classList.add('free');
+
+                grid.appendChild(dayDiv);
+            }
+        }
+
+        // Arrow navigation
+        document.getElementById('prevMonth').addEventListener('click', () => {
+            currentDisplayDate.setMonth(currentDisplayDate.getMonth() - 1);
+            renderCalendar();
+        });
+        document.getElementById('nextMonth').addEventListener('click', () => {
+            currentDisplayDate.setMonth(currentDisplayDate.getMonth() + 1);
+            renderCalendar();
+        });
+
+        // Initial load
+        renderCalendar();
+        </script>
+</body>
+</html>

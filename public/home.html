@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>De Las Armas - Catering & Event Services</title>
+    <link rel="icon" href="assets/img/de las armasa logo 3.png">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="main-nav">
+                <ul class="nav-left">
+                    <li><a href="home.html" class="active">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="packages.html">Packages</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                </ul>
+                <div class="nav-center">
+                    <h1>DE LAS ARMAS</h1>
+                    <p>Catering & Event Services</p>
+                </div>
+                <ul class="nav-right">
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="schedule.html">Schedule</a></li>
+                    <li><a href="otherservices.html">Other Services</a></li>
+                    <li><a href="#" id="userNavBtn">User</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <div class="hero-bg-image"></div>
+            <div class="container hero-content">
+                <h1>De las Armas</h1>
+                <h2>Catering</h2>
+                <p>Simplify your event planning and enhance<br>every occasion with our catering services.</p>
+                <div class="hero-buttons">
+                    <a href="packages.html" class=" btn btn-primary">Packages</a>
+                    <a href="packages_list.html" class="btn btn-secondary">Place an Order</a>
+                </div>
+            </div>
+        </section>
+
+        <div class="page-cream-bg">
+            <div class="section-background">
+                <img src="assets/img/Vector 3.png" alt="White Background Wave">
+            </div>
+            <div class="section-design">
+                <img src="assets/img/image.png" alt="Paper Texture">
+            </div>
+            
+            <section class="featured-section">
+                <div class="container">
+                    <div class="box-container blue-box">
+                        <div class="section-header">
+                            <h2 class="overlap-title title-center"><span class="mask-blue">Featured</span></h2>
+                        </div>
+                        
+                        <div class="featured-grid">
+                            <a href="packages.html" class="feature-card">
+                                <img src="assets/img/Catering.png" alt="Catering Packages">
+                                <div class="overlay"><p>Catering<br>Packages</p></div>
+                                <div class="box"></div>
+                            </a>
+                            <a href="otherservices.html" class="feature-card">
+                                <img src="assets/img/Tables and Chairs.png" alt="Tables & Chairs">
+                                <div class="overlay"><p>Tables &<br>Chairs</p></div>
+                                <div class="box"></div>
+                            </a>
+                            <a href="otherservices.html" class="feature-card">
+                                <img src="assets/img/Backdrop.png" alt="Backdrop">
+                                <div class="overlay"><p>Backdrop</p></div>
+                                <div class="box"></div>
+                            </a>
+                            <a href="gallery.html" class="feature-card">
+                                <img src="assets/img/Gallery.png" alt="Gallery">
+                                <div class="overlay"><p>Gallery</p></div>
+                                <div class="box"></div>
+                            </a>
+                            <a href="schedule.html" class="feature-card">
+                                <img src="assets/img/Calendar.png" alt="Calendar">
+                                <div class="overlay"><p>Calendar</p></div>
+                                <div class="box"></div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="about-section">
+                <div class="container">
+                    <div class="box-container cream-box">
+                        <h2 class="overlap-title title-right"><span class="mask-cream">About Us</span></h2>
+                        <div class="about-text">
+                            <p><span class="dropcap">W</span>elcome to De Las Armas Catering, your trusted partner for unforgettable events in Baliwag, Bulacan. We specialize in providing exceptional catering services, complete with beautiful backdrops, tables, and chairs, to make every occasion truly special. Whether it's a wedding, birthday, corporate event, or any celebration, we are dedicated to delivering delicious food and creating the perfect setting for your event. Let us take care of the details, so you can enjoy your special day with ease and style. At De Las Armas Catering, we turn your vision into a reality, with a personal touch that makes all the difference.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+        </div>
+
+        <section class="reviews-section-wrapper">
+            <div class="container">
+                <div class="box-container transparent-box">
+                    <h2 class="overlap-title title-center"><span class="mask-transparent">Reviews</span></h2>
+                    
+                    <div class="reviews-inner">
+                        <div id="reviewsContainer">
+                            <div class="empty-reviews-box">
+                                <p>No reviews yet</p>
+                            </div>
+                        </div>
+
+                        <div class="review-input-box">
+                            <div class="input-left">
+                                <img src="assets/img/Avatar 1.png" alt="User Profile" class="profile-pic" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iIzE5Mjc2RiI+PHBhdGggZD0iTTEyIDJDMi40OCAyIDIgNi40OCAyIDEyczQuNDggMTAgMTAgMTAgMTAtNC40OCAxMC0xMFMyMS41MiAyIDEyIDJ6bTAgM2MzLjE5IDAgNS44MiAxLjU4IDcuNDIgNGExMS45MTEgMTEuOTExIDAgMCAwLTE0Ljg0IDBDNi4xOCA2LjU4IDguODEgNSAxMiA1em0wIDJjLTEuNjYgMC0zIDEuMzQtMyAzczEuMzQgMyAzIDMgMy0xLjM0IDMtMy0xLjM0LTMtMy0M3ptMCAxMWMtMy4xOSAwLTUuODItMS41OC03LjQyLTRhMTEuOTExIDExLjkxMSAwIDAgMCAxNC44NCAwQzE3LjgyIDE4LjQyIDE1LjE5IDIwIDEyIDIweiIvPjwvc3ZnPg=='">
+                                <input type="text" placeholder="How was your experience?">
+                            </div>
+                            <div class="input-right">
+                                <i class="fa-solid fa-image"></i>
+                                <i class="fa-solid fa-border-all"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-vector">
+            <img src="assets/img/Vector 6.png" alt="Footer Wave">
+        </div>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="assets/img/de las armasa logo 3.png" alt="">
+                </div>
+                <div class="footer-section">
+                    <a href="home.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="schedule.html">Schedule</a>
+                    <a href="contact.html">Contact Us</a>
+                </div>
+                <div class="footer-section">
+                    <a href="packages.html">Packages</a>
+                    <a href="otherservices.html">Tables & Chairs</a>
+                    <a href="otherservices.html">Backdrops</a>
+                    <a href="gallery.html">Gallery</a>
+                </div>
+                <div class="footer-section">
+                    <a href="packages.html">Wedding Package</a>
+                    <a href="packages.html">Debut Package</a>
+                    <a href="packages.html">Corporate Package</a>
+                </div>
+                <div class="footer-section">
+                    <a href="#"><br></a>
+                    <a href="home.html">Reviews</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="settings-popup" id="settingsPopup">
+        <div class="user-info">
+            <img src="assets/img/Avatar 1.png" alt="" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iIzE5Mjc2RiI+PHBhdGggZD0iTTEyIDJDMi40OCAyIDIgNi40OCAyIDEyczQuNDggMTAgMTAgMTAgMTAtNC40OCAxMC0xMFMyMS41MiAyIDEyIDJ6bTAgM2MzLjE5IDAgNS44MiAxLjU4IDcuNDIgNGExMS45MTEgMTEuOTExIDAgMCAwLTE0Ljg0IDBDNi4xOCA2LjU4IDguODEgNSAxMiA1em0wIDJjLTEuNjYgMC0zIDEuMzQtMyAzczEuMzQgMyAzIDMgMy0xLjM0IDMtMy0xLjM0LTMtMy0M3ptMCAxMWMtMy4xOSAwLTUuODItMS41OC03LjQyLTRhMTEuOTExIDExLjkxMSAwIDAgMCAxNC44NCAwQzE3LjgyIDE4LjQyIDE1LjE5IDIwIDEyIDIweiIvPjwvc3ZnPg=='">
+            <h3>John Doe</h3>
+            <p>john.doe@gmail.com</p>
+        </div>
+        <hr class="settings-divider">
+        <ul class="settings-menu">
+            <li><a href="#" onclick="openEditProfileModal(event)"><i class="fa-solid fa-user"></i> Edit Profile</a></li>
+            <li><a href="#" id="changeNameBtn"><i class="fa-solid fa-pen-to-square"></i> Change Name</a></li>
+            <li><a href="#" onclick="openChangePasswordModal(event)"><i class="fa-solid fa-lock"></i> Change Password</a></li>
+            <li><a href="index.html"><i class="fa-solid fa-right-from-bracket"></i> Log Out</a></li>
+        </ul>
+    </div>
+
+    <div class="center-modal-overlay" id="editProfileModal">
+    <div class="center-modal">
+        <span class="close-modal">&times;</span>
+        <h3>Edit Profile</h3>
+        <form id="profilePicForm" enctype="multipart/form-data">
+            <label>Choose Profile Picture:</label>
+            <div id="galleryContainer" class="gallery-grid"></div>
+            <input type="file" id="profilePicInput" accept="image/*">
+            <button type="submit" class="modal-btn">Upload & Save</button>
+        </form>
+    </div>
+</div>
+
+    <div class="center-modal-overlay" id="changeNameModal">
+    <div class="center-modal">
+        <span class="close-modal" onclick="closeChangeNameModal()">&times;</span>
+        <h3>Change Name</h3>
+        
+        <!-- Current name display -->
+        <div style="margin-bottom: 15px; padding: 10px; background: #f5f5f5; border-radius: 5px;">
+            <strong>Current Name:</strong> 
+            <span id="currentNameDisplay">Loading...</span>
+        </div>
+        
+        <!-- Simple form -->
+        <div>
+            <label style="display: block; margin-bottom: 5px; font-weight: bold;">New Name:</label>
+            <input type="text" id="newNameField" placeholder="Enter your new name" 
+                   style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 5px;">
+            
+            <div id="changeNameMessage" style="margin-bottom: 15px; padding: 10px; display: none;"></div>
+            
+            <button onclick="saveNewName()" 
+                    style="width: 100%; padding: 12px; background: #19276F; color: white; border: none; border-radius: 5px; cursor: pointer;">
+                Save Name
+            </button>
+        </div>
+    </div>
+</div>
+
+    <div class="center-modal-overlay" id="changePasswordModal">
+    <div class="center-modal">
+        <span class="close-modal">&times;</span>
+        <h3>Change Password</h3>
+        <form id="changePasswordForm">
+            <div class="form-group">
+                <label>Current Password:</label>
+                <div class="password-input-wrapper">
+                    <input type="password" id="currentPassword" placeholder="Enter current password" required>
+                    <i class="fa-solid fa-eye toggle-password" onclick="togglePassword('currentPassword')"></i>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label>New Password:</label>
+                <div class="password-input-wrapper">
+                    <input type="password" id="newPassword" placeholder="Enter new password" required>
+                    <i class="fa-solid fa-eye toggle-password" onclick="togglePassword('newPassword')"></i>
+                </div>
+                <small class="password-hint">Minimum 8 characters</small>
+            </div>
+            
+            <div class="form-group">
+                <label>Confirm New Password:</label>
+                <div class="password-input-wrapper">
+                    <input type="password" id="confirmPassword" placeholder="Confirm new password" required>
+                    <i class="fa-solid fa-eye toggle-password" onclick="togglePassword('confirmPassword')"></i>
+                </div>
+            </div>
+            
+            <div id="passwordError" class="error-message" style="color: red; display: none;"></div>
+            <div id="passwordSuccess" class="success-message" style="color: green; display: none;"></div>
+            
+            <button type="submit" class="modal-btn" id="changePasswordBtn">Update Password</button>
+        </form>
+    </div>
+</div>
+
+    <script>
+// ===== GLOBAL FUNCTIONS =====
+function openChangePasswordModal(event) {
+    if (event) event.preventDefault();
+    console.log("Opening change password modal");
+    
+    document.getElementById('settingsPopup')?.classList.remove('active');
+    const modal = document.getElementById('changePasswordModal');
+    if (modal) modal.classList.add('active');
+}
+
+function openEditProfileModal(event) {
+    if (event) event.preventDefault();
+    console.log("Opening edit profile modal");
+    
+    document.getElementById('settingsPopup')?.classList.remove('active');
+    const modal = document.getElementById('editProfileModal');
+    if (modal) {
+        modal.classList.add('active');
+        loadGalleryImages();
+    }
+}
+
+function openChangeNameModal(event) {
+    if (event) {
+        event.preventDefault();
+        event.stopPropagation();
+    }
+    
+    console.log("Opening change name modal");
+    
+    // Close settings popup
+    document.getElementById('settingsPopup')?.classList.remove('active');
+    
+    // Get modal
+    const modal = document.getElementById('changeNameModal');
+    if (!modal) {
+        alert("Change name modal not found");
+        return;
+    }
+    
+    // Load current user name
+    try {
+        const userData = JSON.parse(localStorage.getItem('user'));
+        
+        // Update current name display
+        const currentNameDisplay = document.getElementById('currentNameDisplay');
+        if (currentNameDisplay) {
+            currentNameDisplay.textContent = userData?.username || userData?.fName || "User";
+        }
+        
+        // Clear new name field
+        const newNameField = document.getElementById('newNameField');
+        if (newNameField) {
+            newNameField.value = '';
+        }
+        
+        // Clear any previous messages
+        const messageDiv = document.getElementById('changeNameMessage');
+        if (messageDiv) {
+            messageDiv.style.display = 'none';
+            messageDiv.textContent = '';
+        }
+    } catch (e) {
+        console.error("Error loading user data:", e);
+    }
+    
+    // Show modal
+    modal.classList.add('active');
+}
+
+async function saveNewName() {
+    console.log("Saving new name");
+    
+    const newNameField = document.getElementById('newNameField');
+    const newName = newNameField ? newNameField.value.trim() : '';
+    const messageDiv = document.getElementById('changeNameMessage');
+    const modal = document.getElementById('changeNameModal');
+    
+    // Clear previous message
+    if (messageDiv) {
+        messageDiv.style.display = 'none';
+        messageDiv.textContent = '';
+    }
+    
+    // Validate
+    if (!newName) {
+        if (messageDiv) {
+            messageDiv.style.display = 'block';
+            messageDiv.style.background = '#f8d7da';
+            messageDiv.style.color = '#721c24';
+            messageDiv.style.border = '1px solid #f5c6cb';
+            messageDiv.textContent = 'Please enter a name';
+        }
+        return;
+    }
+    
+    if (newName.length < 2) {
+        if (messageDiv) {
+            messageDiv.style.display = 'block';
+            messageDiv.style.background = '#f8d7da';
+            messageDiv.style.color = '#721c24';
+            messageDiv.style.border = '1px solid #f5c6cb';
+            messageDiv.textContent = 'Name must be at least 2 characters';
+        }
+        return;
+    }
+    
+    // Get user data
+    const userData = JSON.parse(localStorage.getItem('user'));
+    if (!userData || !userData.id) {
+        alert('You must be logged in');
+        return;
+    }
+    
+    // Disable save button
+    const saveBtn = document.querySelector('#changeNameModal button[onclick="saveNewName()"]');
+    const originalText = saveBtn ? saveBtn.textContent : 'Save Name';
+    if (saveBtn) {
+        saveBtn.textContent = 'Saving...';
+        saveBtn.disabled = true;
+    }
+    
+    try {
+        console.log("Sending request to server:", {
+            id: userData.id,
+            fName: newName
+        });
+        
+        const response = await fetch('http://localhost:3001/api/user/update-name', {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                id: userData.id,
+                fName: newName
+            })
+        });
+        
+        const result = await response.json();
+        console.log("Server response:", result);
+        
+        if (response.ok) {
+            // Update localStorage
+            userData.username = newName;
+            userData.fName = newName;
+            localStorage.setItem('user', JSON.stringify(userData));
+            
+            // Update all places where name appears
+            const userNameElements = document.querySelectorAll('.user-info h3');
+            userNameElements.forEach(el => {
+                if (el) el.textContent = newName;
+            });
+            
+            // Show success message
+            if (messageDiv) {
+                messageDiv.style.display = 'block';
+                messageDiv.style.background = '#d4edda';
+                messageDiv.style.color = '#155724';
+                messageDiv.style.border = '1px solid #c3e6cb';
+                messageDiv.textContent = 'Name updated successfully!';
+            }
+            
+            // Close modal after 1.5 seconds
+            setTimeout(() => {
+                if (modal) {
+                    modal.classList.remove('active');
+                }
+                if (messageDiv) {
+                    messageDiv.style.display = 'none';
+                    messageDiv.textContent = '';
+                }
+            }, 1500);
+        } else {
+            // Show error
+            if (messageDiv) {
+                messageDiv.style.display = 'block';
+                messageDiv.style.background = '#f8d7da';
+                messageDiv.style.color = '#721c24';
+                messageDiv.style.border = '1px solid #f5c6cb';
+                messageDiv.textContent = result.message || 'Failed to update name';
+            }
+        }
+    } catch (error) {
+        console.error("Error:", error);
+        if (messageDiv) {
+            messageDiv.style.display = 'block';
+            messageDiv.style.background = '#f8d7da';
+            messageDiv.style.color = '#721c24';
+            messageDiv.style.border = '1px solid #f5c6cb';
+            messageDiv.textContent = 'Connection error. Is the server running on port 3001?';
+        }
+    } finally {
+        // Re-enable button
+        if (saveBtn) {
+            saveBtn.textContent = originalText;
+            saveBtn.disabled = false;
+        }
+    }
+}
+
+function closeChangeNameModal() {
+    const modal = document.getElementById('changeNameModal');
+    if (modal) {
+        modal.classList.remove('active');
+        
+        const messageDiv = document.getElementById('changeNameMessage');
+        if (messageDiv) {
+            messageDiv.style.display = 'none';
+            messageDiv.textContent = '';
+        }
+    }
+}
+
+function closeModal(modalId) {
+    const modal = document.getElementById(modalId);
+    if (modal) {
+        modal.classList.remove('active');
+        
+        // If closing change name modal, clear the message
+        if (modalId === 'changeNameModal') {
+            const messageDiv = document.getElementById('changeNameMessage');
+            if (messageDiv) {
+                messageDiv.style.display = 'none';
+                messageDiv.textContent = '';
+            }
+        }
+    }
+}
+
+function togglePassword(inputId) {
+    const input = document.getElementById(inputId);
+    if (!input) return;
+    
+    const icon = input.nextElementSibling;
+    
+    if (input.type === "password") {
+        input.type = "text";
+        if (icon) {
+            icon.classList.remove('fa-eye');
+            icon.classList.add('fa-eye-slash');
+        }
+    } else {
+        input.type = "password";
+        if (icon) {
+            icon.classList.remove('fa-eye-slash');
+            icon.classList.add('fa-eye');
+        }
+    }
+}
+
+// ===== MAIN INITIALIZATION =====
+document.addEventListener('DOMContentLoaded', function() {
+    console.log("DOM fully loaded");
+    
+    const userNavBtn = document.getElementById('userNavBtn');
+    const settingsPopup = document.getElementById('settingsPopup');
+    const closeBtns = document.querySelectorAll('.close-modal');
+    
+    // Check login status
+    const userData = localStorage.getItem('user');
+    if (!userData) {
+        window.location.href = "index.html";
+        return;
+    }
+    
+    // Update user info in popup
+    try {
+        const loggedInUser = JSON.parse(userData);
+        
+        document.querySelector('.user-info h3').textContent = 
+            loggedInUser.username || loggedInUser.fName || "User";
+        document.querySelector('.user-info p').textContent = 
+            loggedInUser.email || "No email";
+        
+        // Load profile picture
+        if (loggedInUser.profilePic) {
+            document.querySelectorAll('.profile-pic, .user-info img').forEach(img => {
+                img.src = loggedInUser.profilePic.startsWith('http') 
+                    ? loggedInUser.profilePic 
+                    : `http://localhost:3001${loggedInUser.profilePic}`;
+            });
+        }
+    } catch (e) {
+        console.error("Error parsing user data:", e);
+    }
+    
+    // User menu toggle
+    if (userNavBtn && settingsPopup) {
+        userNavBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            settingsPopup.classList.toggle('active');
+        });
+    }
+    
+    // Close user menu when clicking outside
+    document.addEventListener('click', function(e) {
+        if (settingsPopup && userNavBtn && 
+            !settingsPopup.contains(e.target) && 
+            !userNavBtn.contains(e.target)) {
+            settingsPopup.classList.remove('active');
+        }
+    });
+    
+    // Close modals when clicking X
+    closeBtns.forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            const modal = this.closest('.center-modal-overlay');
+            if (modal) {
+                modal.classList.remove('active');
+                
+                // If closing change name modal, clear the message
+                if (modal.id === 'changeNameModal') {
+                    const messageDiv = document.getElementById('changeNameMessage');
+                    if (messageDiv) {
+                        messageDiv.style.display = 'none';
+                        messageDiv.textContent = '';
+                    }
+                }
+            }
+        });
+    });
+    
+    // Close modals when clicking outside
+    window.addEventListener('click', function(e) {
+        if (e.target.classList.contains('center-modal-overlay')) {
+            e.target.classList.remove('active');
+            
+            // If closing change name modal, clear the message
+            if (e.target.id === 'changeNameModal') {
+                const messageDiv = document.getElementById('changeNameMessage');
+                if (messageDiv) {
+                    messageDiv.style.display = 'none';
+                    messageDiv.textContent = '';
+                }
+            }
+        }
+    });
+    
+    // Initialize change password form
+    initializeChangePasswordForm();
+    
+    // Initialize profile upload form
+    initializeProfileUploadForm();
+    
+    // Load reviews
+    loadReviews();
+});
+
+// ===== FORM INITIALIZATION FUNCTIONS =====
+function initializeChangePasswordForm() {
+    const changePasswordForm = document.getElementById('changePasswordForm');
+    if (!changePasswordForm) return;
+    
+    changePasswordForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const currentPassword = document.getElementById('currentPassword')?.value;
+        const newPassword = document.getElementById('newPassword')?.value;
+        const confirmPassword = document.getElementById('confirmPassword')?.value;
+        const errorDiv = document.getElementById('passwordError');
+        const successDiv = document.getElementById('passwordSuccess');
+        const submitBtn = this.querySelector('button[type="submit"]');
+        
+        // Reset messages
+        if (errorDiv) errorDiv.style.display = 'none';
+        if (successDiv) successDiv.style.display = 'none';
+        
+        // Get user data
+        const userData = JSON.parse(localStorage.getItem('user'));
+        if (!userData || !userData.id) {
+            if (errorDiv) {
+                errorDiv.textContent = "You must be logged in";
+                errorDiv.style.display = 'block';
+            }
+            return;
+        }
+        
+        // Validation
+        if (!currentPassword || !newPassword || !confirmPassword) {
+            if (errorDiv) {
+                errorDiv.textContent = "All fields are required";
+                errorDiv.style.display = 'block';
+            }
+            return;
+        }
+        
+        if (newPassword.length < 8) {
+            if (errorDiv) {
+                errorDiv.textContent = "Password must be at least 8 characters";
+                errorDiv.style.display = 'block';
+            }
+            return;
+        }
+        
+        if (newPassword !== confirmPassword) {
+            if (errorDiv) {
+                errorDiv.textContent = "Passwords do not match";
+                errorDiv.style.display = 'block';
+            }
+            return;
+        }
+        
+        // Submit
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = "Updating...";
+        submitBtn.disabled = true;
+        
+        try {
+            const response = await fetch('http://localhost:3001/api/user/change-password', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    userId: userData.id,
+                    currentPassword: currentPassword,
+                    newPassword: newPassword
+                })
+            });
+            
+            const result = await response.json();
+            
+            if (response.ok) {
+                if (successDiv) {
+                    successDiv.textContent = "Password changed successfully!";
+                    successDiv.style.display = 'block';
+                }
+                
+                // Clear form
+                document.getElementById('currentPassword').value = '';
+                document.getElementById('newPassword').value = '';
+                document.getElementById('confirmPassword').value = '';
+                
+                // Close modal after 2 seconds
+                setTimeout(() => {
+                    document.getElementById('changePasswordModal')?.classList.remove('active');
+                    if (successDiv) successDiv.style.display = 'none';
+                }, 2000);
+            } else {
+                if (errorDiv) {
+                    errorDiv.textContent = result.message || "Failed to change password";
+                    errorDiv.style.display = 'block';
+                }
+            }
+        } catch (err) {
+            console.error("Password change error:", err);
+            if (errorDiv) {
+                errorDiv.textContent = "Connection error. Is the server running?";
+                errorDiv.style.display = 'block';
+            }
+        } finally {
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+        }
+    });
+}
+
+function initializeProfileUploadForm() {
+    const profilePicForm = document.getElementById('profilePicForm');
+    const profilePicInput = document.getElementById('profilePicInput');
+    
+    if (!profilePicForm || !profilePicInput) return;
+    
+    profilePicForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const file = profilePicInput.files[0];
+        const userData = JSON.parse(localStorage.getItem('user'));
+        
+        if (!file) {
+            alert("Please select a file first.");
+            return;
+        }
+        
+        if (!file.type.startsWith('image/')) {
+            alert("Please select an image file");
+            return;
+        }
+        
+        if (file.size > 5 * 1024 * 1024) {
+            alert("File size must be less than 5MB");
+            return;
+        }
+        
+        const submitBtn = this.querySelector('button[type="submit"]');
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = "Uploading...";
+        submitBtn.disabled = true;
+        
+        const formData = new FormData();
+        formData.append('profilePic', file);
+        formData.append('userId', userData.id);
+        
+        try {
+            const response = await fetch('http://localhost:3001/api/user/upload-profile-pic', {
+                method: 'POST',
+                body: formData
+            });
+            
+            const result = await response.json();
+            
+            if (response.ok) {
+                const newUrl = `http://localhost:3001${result.image}`;
+                
+                document.querySelectorAll('.profile-pic, .user-info img').forEach(img => {
+                    img.src = newUrl;
+                });
+                
+                userData.profilePic = newUrl;
+                localStorage.setItem('user', JSON.stringify(userData));
+                
+                document.getElementById('editProfileModal').classList.remove('active');
+                profilePicInput.value = "";
+                alert("Profile picture uploaded successfully!");
+            } else {
+                alert(result.message || "Upload failed");
+            }
+        } catch (err) {
+            console.error("Upload failed:", err);
+            alert("Connection error");
+        } finally {
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+        }
+    });
+}
+
+async function loadGalleryImages() {
+    try {
+        const response = await fetch('http://localhost:3001/api/gallery');
+        const galleryItems = await response.json();
+        
+        const galleryContainer = document.getElementById('galleryContainer');
+        if (!galleryContainer) return;
+        
+        if (galleryItems.length === 0) {
+            galleryContainer.innerHTML = '<p>No gallery images available</p>';
+            return;
+        }
+        
+        galleryContainer.innerHTML = galleryItems.map(item => `
+            <div class="gallery-item" onclick="selectGalleryImage('${item.image_path}')">
+                <img src="http://localhost:3001${item.image_path}" alt="Gallery image">
+            </div>
+        `).join('');
+    } catch (err) {
+        console.error("Failed to load gallery:", err);
+    }
+}
+
+async function selectGalleryImage(imagePath) {
+    const userData = JSON.parse(localStorage.getItem('user'));
+    
+    if (!userData) {
+        alert("Please log in first");
+        return;
+    }
+    
+    try {
+        const response = await fetch('http://localhost:3001/api/user/set-profile-from-gallery', {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ 
+                userId: userData.id, 
+                imagePath: imagePath 
+            })
+        });
+        
+        if (response.ok) {
+            const newUrl = `http://localhost:3001${imagePath}`;
+            
+            document.querySelectorAll('.profile-pic, .user-info img').forEach(img => {
+                img.src = newUrl;
+            });
+            
+            userData.profilePic = newUrl;
+            localStorage.setItem('user', JSON.stringify(userData));
+            
+            document.getElementById('editProfileModal').classList.remove('active');
+            alert("Profile picture updated from gallery!");
+        } else {
+            alert("Failed to update profile picture");
+        }
+    } catch (err) {
+        console.error("Gallery selection error:", err);
+        alert("Connection error");
+    }
+}
+
+const reviewInput = document.querySelector('.review-input-box input');
+if (reviewInput) {
+    reviewInput.addEventListener('keydown', async function (e) {
+        if (e.key === 'Enter') {
+            e.preventDefault(); 
+
+            const userData = localStorage.getItem('user');
+            if (!userData) {
+                alert("Please log in to post a review!");
+                return;
+            }
+
+            const loggedInUser = JSON.parse(userData);
+            console.log("Logged in user:", loggedInUser); // Debug log
+            
+            // Make sure we have a user ID
+            if (!loggedInUser.id) {
+                alert("User ID not found. Please log in again.");
+                return;
+            }
+
+            const commentText = this.value.trim();
+            
+            if (!commentText) {
+                alert("Review cannot be empty.");
+                return;
+            }
+
+            const reviewData = {
+                comment: commentText,
+                rating: 5, // Default rating
+                user_id: loggedInUser.id
+            };
+            
+            console.log("Sending review:", reviewData); // Debug log
+
+            try {
+                const response = await fetch('http://localhost:3001/api/reviews', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(reviewData)
+                });
+                
+                const result = await response.json();
+                console.log("Review response:", result); // Debug log
+                
+                if (response.ok) {
+                    this.value = "";
+                    alert("Review posted successfully!");
+                    loadReviews(); // Reload reviews
+                } else {
+                    alert("Failed to post review: " + (result.message || "Unknown error"));
+                }
+            } catch (err) {
+                console.error("Review post error:", err);
+                alert("Connection error. Make sure server is running.");
+            }
+        }
+    });
+}
+
+async function loadReviews() {
+    try {
+        const response = await fetch('http://localhost:3001/api/reviews');
+        if (!response.ok) {
+            throw new Error('Failed to fetch reviews');
+        }
+        const reviews = await response.json();
+        
+        const container = document.getElementById("reviewsContainer");
+        if (!container) return;
+        
+        if (!reviews || reviews.length === 0) {
+            container.innerHTML = `
+                <div class="empty-reviews-box">
+                    <p>No reviews yet. Be the first to leave a review!</p>
+                </div>`;
+            return;
+        }
+        
+        container.innerHTML = reviews.map(rev => `
+            <div class="review-item">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 5px;">
+                    <img src="assets/img/Avatar 1.png" style="width: 30px; height: 30px; border-radius: 50%;" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iIzE5Mjc2RiI+PHBhdGggZD0iTTEyIDJDMi40OCAyIDIgNi40OCAyIDEyczQuNDggMTAgMTAgMTAgMTAtNC40OCAxMC0xMFMyMS41MiAyIDEyIDJ6bTAgM2MzLjE5IDAgNS44MiAxLjU4IDcuNDIgNGExMS45MTEgMTEuOTExIDAgMCAwLTE0Ljg0IDBDNi4xOCA2LjU4IDguODEgNSAxMiA1em0wIDJjLTEuNjYgMC0zIDEuMzQtMyAzczEuMzQgMyAzIDMgMy0xLjM0IDMtMy0xLjM0LTMtMy0M3ptMCAxMWMtMy4xOSAwLTUuODItMS41OC03LjQyLTRhMTEuOTExIDExLjkxMSAwIDAgMCAxNC44NCAwQzE3LjgyIDE4LjQyIDE1LjE5IDIwIDEyIDIweiIvPjwvc3ZnPg=='">
+                    <strong style="color: #19276F;">${rev.username || 'Anonymous'}</strong>
+                    <span style="color: #FFD700; margin-left: auto;">
+                        ${'★'.repeat(rev.rating)}${'☆'.repeat(5-rev.rating)}
+                    </span>
+                </div>
+                <p style="margin-left: 40px; color: #333;">${rev.comment}</p>
+                <small style="margin-left: 40px; color: #999;">${new Date(rev.created_at).toLocaleDateString()}</small>
+            </div>
+        `).join('');
+        
+    } catch (err) {
+        console.error("Failed to load reviews:", err);
+        const container = document.getElementById("reviewsContainer");
+        if (container) {
+            container.innerHTML = `
+                <div class="empty-reviews-box">
+                    <p>Error loading reviews. Please refresh.</p>
+                </div>`;
+        }
+    }
+}
+loadReviews();
+setInterval(loadReviews, 30000);
+
+
+// Make functions globally available
+window.openChangeNameModal = openChangeNameModal;
+window.saveNewName = saveNewName;
+window.closeChangeNameModal = closeChangeNameModal;
+window.openEditProfileModal = openEditProfileModal;
+window.openChangePasswordModal = openChangePasswordModal;
+window.closeModal = closeModal;
+window.togglePassword = togglePassword;
+window.selectGalleryImage = selectGalleryImage;
+</script>
+</body>
+</html>

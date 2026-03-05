@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corporate Package - De Las Armas</title>
+    <link rel="icon" href="assets/img/de las armasa logo 3.png">
+    <link rel="stylesheet" href="assets/css/corporate.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="package-header">
+        <div class="header-content">
+            <a href="packages_list.html" class="back-button">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+            <div class="header-logo-section">
+                <img src="assets/img/de las armasa logo 3 (1).png" alt="Logo" class="pkg-logo">
+                <div class="header-text">
+                    <h3>DE LAS ARMAS</h3>
+                    <p>Catering & Event Services</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="package-main">
+        <div class="content-grid">
+            
+            <div class="col-text">
+                <h1 class="pkg-title">Corporate Package</h1>
+                <h2 class="pkg-price">Good for 120 guests – ₱55,000</h2>
+                <p class="pkg-desc">Perfect for weddings, birthdays, or corporate events</p>
+
+                <div class="pkg-lists">
+                    <p class="list-label">Menu:</p>
+                    <ul class="menu-list">
+                        <li>Beef or Pork</li>
+                        <li>Cordon Bleu or Fish Fillet</li>
+                        <li>Pasta</li>
+                        <li>Vegetable</li>
+                        <li>Steamed Rice</li>
+                        <li>Drinks & Dessert</li>
+                    </ul>
+
+                    <p class="list-label">Inclusions:</p>
+                    <ul class="inclusions-list">
+                        <li><i class="fas fa-check"></i> Basic backdrop styling</li>
+                        <li><i class="fas fa-check"></i> Complete catering & buffet setup</li>
+                        <li><i class="fas fa-check"></i> Uniformed waiters and buffet attendants</li>
+                        <li><i class="fas fa-check"></i> Covered tables & chairs with color motif</li>
+                        <li><i class="fas fa-check"></i> Centerpieces & table numbers</li>
+                        <li><i class="fas fa-check"></i> FREE Tiffany-style couch</li>
+                        <li><i class="fas fa-check"></i> FREE coffee station at the buffet</li>
+                    </ul>
+
+                    <p class="list-label">Freebies:</p>
+                    <ul class="freebies-list">
+                        <li><i class="fas fa-microphone-alt"></i> Basic lights and sounds</li>
+                        <li><i class="fas fa-user-tie"></i> EMCEE or Clown (your choice)</li>
+                    </ul>
+                </div>
+
+                <div class="img-container img-1">
+                    <img src="assets/img/Corp 1.png" alt="Food Setup">
+                </div>
+            </div>
+
+            <div class="col-middle">
+                <div class="img-container img-5">
+                    <img src="assets/img/Corp 5.png" alt="Buffet Service">
+                </div>
+                
+                <div class="middle-bottom-row">
+                    <div class="img-container img-4">
+                        <img src="assets/img/Corp 4.png" alt="Decor Detail">
+                    </div>
+                    <div class="img-container img-2">
+                        <img src="assets/img/Corp 2.png" alt="Stage Setup">
+                    </div>
+                    <div class="img-container img-3">
+                        <img src="assets/img/Corp 3.png" alt="Stage Zoom">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-right">
+                <div class="img-container img-6">
+                    <img src="assets/img/Corp 6.png" alt="Hall Overview">
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-brand">
+            <h4>DE LAS ARMAS</h4>
+            <p>Catering & Event Services</p>
+        </div>
+        
+        <div class="footer-divider"></div>
+        
+        <div class="footer-links">
+            <a href="#">Terms</a>
+            <a href="#">Privacy</a>
+        </div>
+
+        <div class="action-buttons">
+            <button class="btn-pkg btn-addons" onclick="window.location.href='menu.html'">Add-Ons</button>
+            <button class="btn-pkg btn-cart" onclick="window.location.href='cart.html'">View Cart</button>
+        </div>
+    </footer>
+    <script>
+    function addPackageToCart(name, price) {
+
+        const pkg = {
+            name: name,
+            price: parseInt(price),
+            qty: 1
+        };
+        
+        localStorage.setItem('selectedPackage', JSON.stringify(pkg));
+        
+
+        console.log("Saved package:", pkg);
+        
+
+        window.location.href = "cart.html";
+    }
+    </script>
+</body>
+</html>

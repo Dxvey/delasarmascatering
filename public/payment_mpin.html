@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MPIN Login - De Las Armas</title>
+    <link rel="icon" href="assets/img/de las armasa logo 3.png">
+    <link rel="stylesheet" href="assets/css/payment.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="checkout-header">
+        <div class="header-container">
+            <div class="header-left">
+                <img src="assets/img/de las armasa logo 3 (1).png" alt="Logo" class="header-logo">
+                <h1>DE LAS ARMAS <span style="font-size: 16px; font-style: italic; font-weight: normal;">Catering</span></h1>
+            </div>
+            <div class="header-right">
+                <nav>
+                    <a href="home.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="packages_list.html">Packages</a>
+                    <a href="contact.html">Contact Us</a>
+                </nav>
+                <div class="brand-text">
+                    <h4>DE LAS ARMAS</h4>
+                    <p>Catering & Event Services</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="payment-main">
+        
+        <h1 class="gcash-title">GCash</h1>
+
+        <div class="payment-card">
+            <div class="card-header-info">
+                <div class="info-row">
+                    <span class="label">Merchant</span>
+                    <span class="merchant-name">DE LAS ARMAS CATERING</span>
+                </div>
+                <div class="info-row">
+                    <span class="label">Reservation Fee</span>
+                    <span class="amount" id="displayAmount">₱1,500.00</span>
+                </div>
+            </div>
+
+            <div class="card-body">
+                <h2>Enter your MPIN</h2>
+                <p class="subtitle mpin-subtitle">Enter your 4-digit MPIN to confirm payment</p>
+
+                <form id="mpinForm" class="payment-form">
+                    
+                    <div class="mpin-container">
+                        <input type="password" maxlength="1" class="mpin-input" id="mpin1" inputmode="numeric" autofocus>
+                        <input type="password" maxlength="1" class="mpin-input" id="mpin2" inputmode="numeric">
+                        <input type="password" maxlength="1" class="mpin-input" id="mpin3" inputmode="numeric">
+                        <input type="password" maxlength="1" class="mpin-input" id="mpin4" inputmode="numeric">
+                    </div>
+                    
+                    <div id="mpinError" style="color: #e74c3c; display: none; margin-bottom: 10px; text-align: center;"></div>
+                    <div id="mpinLoading" style="color: #3498db; display: none; margin-bottom: 10px; text-align: center;">Processing payment...</div>
+
+                    <button type="submit" class="btn-next" id="mpinSubmitBtn">PAY ₱1,500</button>
+
+                    <a href="#" class="forgot-mpin">Forgot MPIN?</a>
+                </form>
+                
+                <div class="mpin-hint" style="margin-top: 20px; padding: 10px; background: #f5f5f5; border-radius: 5px; text-align: center;">
+                    <p style="color: #666; font-size: 12px;">
+                        <i class="fas fa-info-circle"></i> 
+                        For demo purposes, use MPIN: <strong>1234</strong>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="page-footer">
+        <div class="footer-brand">
+            <h4>DE LAS ARMAS</h4>
+            <p>Catering & Event Services</p>
+        </div>
+        <div class="footer-links">
+            <div class="v-line"></div>
+            <a href="#">Terms</a>
+            <a href="#">Privacy</a>
+        </div>
+    </footer>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Fixed reservation fee
+        const RESERVATION_FEE = 1500;
+        
+        // Get the actual total from localStorage (for reference)
+        const selectedPackage = JSON.parse(localStorage.getItem('selectedPackage')) || null;
+        const addons = JSON.parse(localStorage.getItem('myCart')) || [];
+        
+        // Calculate total order amount
+        let packageTotal = selectedPackage ? (selectedPackage.price * selectedPackage.qty) : 0;
+        let addonsTotal = addons.reduce((sum, item) => sum + (item.price * item.qty), 0);
+        const totalOrderAmount = packageTotal + addonsTotal;
+        
+        // Display the reservation fee
+        document.getElementById('displayAmount').textContent = `₱${RESERVATION_FEE.toLocaleString()}.00`;
+        
+        // Store for receipt
+        sessionStorage.setItem('paymentAmount', RESERVATION_FEE);
+        sessionStorage.setItem('totalOrderAmount', totalOrderAmount);
+        sessionStorage.setItem('reservationFee', RESERVATION_FEE);
+        
+        // For demo purposes, the correct MPIN is 1234
+        const CORRECT_MPIN = '1234';
+        
+        const mpinInputs = [mpin1, mpin2, mpin3, mpin4];
+        
+        // Handle MPIN input
+        mpinInputs.forEach((input, index) => {
+            input.addEventListener('input', function(e) {
+                // Only allow numbers
+                this.value = this.value.replace(/[^0-9]/g, '');
+                
+                // Auto-focus next input
+                if (this.value.length === 1 && index < mpinInputs.length - 1) {
+                    mpinInputs[index + 1].focus();
+                }
+                
+                // Clear any previous error
+                document.getElementById('mpinError').style.display = 'none';
+            });
+            
+            // Handle backspace
+            input.addEventListener('keydown', function(e) {
+                if (e.key === 'Backspace' && index > 0 && this.value.length === 0) {
+                    mpinInputs[index - 1].focus();
+                }
+            });
+        });
+        
+        // Handle form submission
+        document.getElementById('mpinForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const enteredMPIN = mpinInputs.map(input => input.value).join('');
+            const errorDiv = document.getElementById('mpinError');
+            const loadingDiv = document.getElementById('mpinLoading');
+            const submitBtn = document.getElementById('mpinSubmitBtn');
+            
+            errorDiv.style.display = 'none';
+            
+            // Check if all MPIN digits are entered
+            if (enteredMPIN.length !== 4) {
+                errorDiv.textContent = 'Please enter complete 4-digit MPIN';
+                errorDiv.style.display = 'block';
+                return;
+            }
+            
+            // Show loading
+            loadingDiv.style.display = 'block';
+            submitBtn.disabled = true;
+            
+            // Simulate processing delay
+            setTimeout(async () => {
+                
+                // Verify MPIN (for demo, 1234 is correct)
+                if (enteredMPIN === CORRECT_MPIN) {
+                    
+                    // Get user data
+                    const userId = localStorage.getItem('currentUserId');
+                    
+                    try {
+                        // Send to backend
+                        const response = await fetch('http://localhost:3001/add-sale', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({
+                                userId: userId,
+                                amount: RESERVATION_FEE,
+                                address: localStorage.getItem('eventAddress') || 'N/A',
+                                eventDate: localStorage.getItem('eventDate') || new Date().toISOString().split('T')[0],
+                                contact: localStorage.getItem('contactNumber') || 'N/A'
+                            })
+                        });
+                        
+                        if (response.ok) {
+                            // Store transaction date
+                            const now = new Date();
+                            const formattedDate = now.toLocaleDateString('en-US', { 
+                                month: 'long', 
+                                day: 'numeric', 
+                                year: 'numeric' 
+                            });
+                            sessionStorage.setItem('transactionDate', formattedDate);
+                            
+                            // Redirect to receipt
+                            window.location.href = 'payment_receipt.html';
+                        } else {
+                            errorDiv.textContent = 'Payment processing failed. Please try again.';
+                            errorDiv.style.display = 'block';
+                            loadingDiv.style.display = 'none';
+                            submitBtn.disabled = false;
+                        }
+                    } catch (err) {
+                        console.error("Payment Error:", err);
+                        errorDiv.textContent = 'Connection error. Please check if server is running.';
+                        errorDiv.style.display = 'block';
+                        loadingDiv.style.display = 'none';
+                        submitBtn.disabled = false;
+                    }
+                } else {
+                    errorDiv.textContent = 'Invalid MPIN. Please try again. (Use 1234 for demo)';
+                    errorDiv.style.display = 'block';
+                    loadingDiv.style.display = 'none';
+                    submitBtn.disabled = false;
+                    
+                    // Clear inputs
+                    mpinInputs.forEach(input => input.value = '');
+                    mpinInputs[0].focus();
+                }
+            }, 1500); // 1.5 second processing time
+        });
+        
+        // Allow pasting of MPIN
+        document.addEventListener('paste', function(e) {
+            if (document.activeElement.classList.contains('mpin-input')) {
+                e.preventDefault();
+                const pasteData = e.clipboardData.getData('text').replace(/[^0-9]/g, '');
+                
+                for (let i = 0; i < Math.min(pasteData.length, mpinInputs.length); i++) {
+                    mpinInputs[i].value = pasteData[i];
+                }
+                
+                if (pasteData.length >= mpinInputs.length) {
+                    mpinInputs[mpinInputs.length - 1].focus();
+                } else {
+                    mpinInputs[pasteData.length].focus();
+                }
+            }
+        });
+    });
+    </script>
+</body>
+</html>

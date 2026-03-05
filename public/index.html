@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>De Las Armas Catering</title>
+    <link rel="icon" href="assets/img/de las armasa logo 3.png">
+    <link rel="stylesheet" href="assets/css/login.css">
+</head>
+<body>
+    <header>
+        <div class="sub-logo">
+            <h1>De las armas</h1>
+            <p>Catering & Event Services</p>
+        </div>
+    </header>
+    <div class="wrapper" id="login">
+        <form id="loginForm">
+            <h1>Log In</h1>
+            <p>De Las Armas Catering</p>
+            <div class="input-box">
+                <input type="text" name="email" placeholder="Email" required>
+                <i class="bx bxs-user"></i>
+            </div>
+            <div class="input-box">
+                <input type="password" name="password" placeholder="Password" required>
+                <i class="bx bxs-lock-alt"></i>
+            </div>
+            <div class="remember-forgot" id="forgotButton">
+                <p1><ins>Forgot Password?</ins></p1>
+            </div>
+            <button type="submit" class="btn" id="login-btn" name="signIn">Log In</button>
+            <p2>Don't have an account? </p2>
+            <div class="signup-link" id="signUpButton">
+                <a href="signup.html">Sign Up</a>
+            </div>
+            
+        </form>
+    </div>
+
+
+    <div class="wrapper" id="forgotpassword" style="display: none;">
+        <form>
+            <h1>Forgot Password</h1>
+            <p>De Las Armas Catering</p>
+            <div class="type-box">
+                <p>Please enter your email and we'll send you<br>a one-time passcode</p>
+                <input type="text" name="email" placeholder="Email" required> 
+                <i class="bx bxs-user"></i>
+            </div>
+            <button type="submit" class="btn" id="forgot-btn" name="signIn">Send Code</button>
+            <p2>Don't have an account? </p2>
+            <div class="register-link" id="signUpButtonForgot">
+                <a href="signup.html">Sign Up</a>
+            </div>
+        </form>
+    </div>
+    <script src="assets/js/script.js"></script>
+</body>
+</html>

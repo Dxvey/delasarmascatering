@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment - De Las Armas</title>
+    <link rel="icon" href="assets/img/de las armasa logo 3.png">
+    <link rel="stylesheet" href="assets/css/payment.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="checkout-header">
+        <div class="header-container">
+            <div class="header-left">
+                <img src="assets/img/de las armasa logo 3 (1).png" alt="Logo" class="header-logo">
+                <h1>DE LAS ARMAS <span style="font-size: 16px; font-style: italic; font-weight: normal;">Catering</span></h1>
+            </div>
+            <div class="header-right">
+                <nav>
+                    <a href="home.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="packages_list.html">Packages</a>
+                    <a href="contact.html">Contact Us</a>
+                </nav>
+                <div class="brand-text">
+                    <h4>DE LAS ARMAS</h4>
+                    <p>Catering & Event Services</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="payment-main">
+        
+        <h1 class="gcash-title">GCash</h1>
+
+        <div class="payment-card">
+            <div class="card-header-info">
+                <div class="info-row">
+                    <span class="label">Merchant</span>
+                    <span class="merchant-name">DE LAS ARMAS CATERING</span>
+                </div>
+                <div class="info-row">
+                    <span class="label">Amount Due</span>
+                    <span class="amount" id="displayAmount">₱0.00</span>
+                </div>
+            </div>
+
+            <div class="card-body">
+                <h2>Login to pay with GCash</h2>
+                <p class="subtitle">Input your Mobile Number</p>
+
+                <form id="gcashLoginForm" class="payment-form">
+                    <div class="input-group">
+                        <span class="prefix">+63</span>
+                        <input type="text" id="mobileNumber" placeholder="Mobile number" maxlength="10" inputmode="numeric" required>
+                    </div>
+
+                    <button type="submit" class="btn-next" id="loginNextBtn">NEXT</button>
+
+                    <a href="#" class="create-account-link">Create an account</a>
+                </form>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="page-footer">
+        <div class="footer-brand">
+            <h4>DE LAS ARMAS</h4>
+            <p>Catering & Event Services</p>
+        </div>
+        <div class="footer-links">
+            <div class="v-line"></div>
+            <a href="#">Terms</a>
+            <a href="#">Privacy</a>
+        </div>
+    </footer>
+
+    <script>
+    // Display the total amount from localStorage
+    document.addEventListener('DOMContentLoaded', function() {
+        const total = localStorage.getItem('cartTotal') || '0';
+        const formattedTotal = parseFloat(total).toFixed(2);
+        document.getElementById('displayAmount').textContent = `₱${parseFloat(formattedTotal).toLocaleString()}`;
+        
+        // Store the total for later pages
+        sessionStorage.setItem('paymentAmount', total);
+    });
+
+    // Handle mobile number input
+    document.getElementById('mobileNumber').addEventListener('input', function(e) {
+        this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10);
+    });
+
+    // Handle form submission
+    document.getElementById('gcashLoginForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const mobileNumber = document.getElementById('mobileNumber').value;
+        
+        if (mobileNumber.length < 10) {
+            alert('Please enter a valid 10-digit mobile number');
+            return;
+        }
+        
+        // Generate a random 6-digit OTP
+        const generatedOTP = Math.floor(100000 + Math.random() * 900000).toString();
+        
+        // Store the OTP and mobile number in session storage
+        sessionStorage.setItem('gcashOTP', generatedOTP);
+        sessionStorage.setItem('gcashMobile', mobileNumber);
+        
+        // In a real app, this would send an SMS
+        // For simulation, we'll show the OTP in an alert (remove this in production)
+        alert(`[SIMULATION MODE]\n\nYour GCash OTP is: ${generatedOTP}\n\nThis would be sent to +63${mobileNumber} via SMS.`);
+        
+        // Redirect to authentication page
+        window.location.href = 'payment_auth.html';
+    });
+
+    
+    </script>
+</body>
+</html>

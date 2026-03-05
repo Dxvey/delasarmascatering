@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice - De Las Armas</title>
+    <link rel="stylesheet" href="assets/css/payment.css">
+    <link rel="icon" href="assets/img/de las armasa logo 3.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="checkout-header">
+        <div class="header-container">
+            <div class="header-left">
+                <img src="assets/img/de las armasa logo 3 (1).png" alt="Logo" class="header-logo">
+                <h1>DE LAS ARMAS <span style="font-size: 16px; font-style: italic; font-weight: normal;">Catering</span></h1>
+            </div>
+            <div class="header-right">
+                <nav>
+                    <a href="home.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="packages_list.html">Packages</a>
+                    <a href="contact.html">Contact Us</a>
+                </nav>
+                <div class="brand-text">
+                    <h4>DE LAS ARMAS</h4>
+                    <p>Catering & Event Services</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="payment-main invoice-main">
+        
+        <div class="invoice-card">
+            <div class="invoice-bar top-bar"></div>
+
+            <div class="invoice-content">
+                <div class="client-header">
+                    <h2>DE LAS ARMAS CATERING</h2>
+                    <p>123 Mabini Street, Barangay Poblacion</p>
+                    <p>Baliuag City, Bulacan, 3006</p>
+                </div>
+
+                <div class="invoice-info-grid">
+                    <div class="info-col">
+                        <h3>BILL TO / CLIENT</h3>
+                        <p id="clientFullName">Maria Angela D. Santos</p>
+                        <p id="clientAddress">123 Mabini Str, Poblacion, Baliuag City, Bulacan</p>
+                        <p id="clientContact">09123456789</p>
+                        <p id="clientEmail">client@email.com</p>
+                    </div>
+                    <div class="info-col">
+                        <h3>EVENT DETAILS</h3>
+                        <p><strong>Event Date:</strong> <span id="eventDate">March 15, 2026</span></p>
+                        <p><strong>Event Address:</strong> <span id="eventAddress">Same as client address</span></p>
+                        <p><strong>Payment Status:</strong> <span id="paymentStatus" style="color: #f39c12;">Reservation Fee Paid</span></p>
+                    </div>
+                    <div class="info-col details-col">
+                        <div class="detail-pair">
+                            <span class="key">INVOICE #</span>
+                            <span class="val" id="invoiceNumber">INV-2025-001</span>
+                        </div>
+                        <div class="detail-pair">
+                            <span class="key">INVOICE DATE</span>
+                            <span class="val" id="invoiceDate">11/02/2025</span>
+                        </div>
+                        <div class="detail-pair">
+                            <span class="key">RESERVATION FEE</span>
+                            <span class="val" id="reservationFeeDisplay">₱1,500</span>
+                        </div>
+                        <div class="detail-pair">
+                            <span class="key">DUE DATE</span>
+                            <span class="val" id="dueDate">26/02/2025</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="receipt-total-section">
+                    <span class="total-label">TOTAL ORDER AMOUNT</span>
+                    <span class="total-amount" id="totalOrderAmount">₱57,689</span>
+                </div>
+
+                <div class="payment-breakdown" style="display: flex; justify-content: space-between; margin: 10px 0 20px; padding: 10px; background: #f5f5f5; border-radius: 5px;">
+                    <div>
+                        <small>Reservation Fee Paid:</small>
+                        <strong id="reservationPaid" style="color: #27ae60;">₱1,500</strong>
+                    </div>
+                    <div>
+                        <small>Remaining Balance:</small>
+                        <strong id="remainingBalance" style="color: #e74c3c;">₱56,189</strong>
+                    </div>
+                </div>
+
+                <table class="invoice-table">
+                    <thead>
+                        <tr>
+                            <th style="text-align: center;">QTY</th>
+                            <th style="text-align: left;">DESCRIPTION</th>
+                            <th style="text-align: right;">UNIT PRICE</th>
+                            <th style="text-align: right;">AMOUNT</th>
+                        </tr>
+                    </thead>
+                    <tbody id="invoiceItems">
+                        <!-- Items will be inserted here by JavaScript -->
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="3" style="text-align: right; font-weight: bold;">Subtotal:</td>
+                            <td style="text-align: right; font-weight: bold;" id="subtotal">₱57,689</td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" style="text-align: right;">Reservation Fee (Paid):</td>
+                            <td style="text-align: right; color: #27ae60;" id="footerReservation">-₱1,500</td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" style="text-align: right; font-weight: bold;">BALANCE DUE:</td>
+                            <td style="text-align: right; font-weight: bold; color: #e74c3c;" id="balanceDue">₱56,189</td>
+                        </tr>
+                    </tfoot>
+                </table>
+
+                <div class="terms-section">
+                    <h3>TERMS AND CONDITIONS</h3>
+                    <p>1. Reservation fee of ₱1,500 is non-refundable but will be deducted from total amount.</p>
+                    <p>2. Full payment must be settled at least 3 days before the event date.</p>
+                    <p>3. Cancellations must be made at least 7 days before the event for partial refund.</p>
+                    <div class="bank-details">
+                        <p><strong>Payment Methods:</strong></p>
+                        <p>GCash: 09876543212 - De Las Armas Catering</p>
+                        <p>BDO: 001234567890 - De Las Armas Catering</p>
+                        <p>BPI: 9876543210 - De Las Armas Catering</p>
+                    </div>
+                </div>
+
+                <div class="invoice-actions">
+                    <button onclick="window.print()" class="btn-print">
+                        <i class="fas fa-print"></i> PRINT INVOICE
+                    </button>
+                    <button onclick="window.location.href='home.html'" class="btn-continue-invoice">
+                        CONTINUE TO HOME
+                    </button>
+                </div>
+
+            </div>
+
+            <div class="invoice-bar bottom-bar"></div>
+        </div>
+
+    </main>
+
+    <footer class="page-footer">
+        <div class="footer-brand">
+            <h4>DE LAS ARMAS</h4>
+            <p>Catering & Event Services</p>
+        </div>
+        <div class="footer-links">
+            <div class="v-line"></div>
+            <a href="#">Terms</a>
+            <a href="#">Privacy</a>
+        </div>
+    </footer>
+
+    <style>
+        .invoice-actions {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+            margin-top: 20px;
+        }
+        
+        .btn-print {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        .btn-print:hover {
+            background: #2980b9;
+        }
+        
+        .btn-continue-invoice {
+            background: #19276F;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        .btn-continue-invoice:hover {
+            background: #0f1a4a;
+        }
+        
+        .payment-breakdown {
+            font-size: 14px;
+        }
+        
+        .payment-breakdown div {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .invoice-table tfoot tr td {
+            padding: 5px 10px;
+            border-top: 1px solid #ddd;
+        }
+    </style>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Fixed reservation fee
+        const RESERVATION_FEE = 1500;
+        
+        // Get order data from localStorage
+        const selectedPackage = JSON.parse(localStorage.getItem('selectedPackage')) || null;
+        const addons = JSON.parse(localStorage.getItem('myCart')) || [];
+        
+        // Get customer details from checkout (you need to store these during checkout)
+        const customerData = JSON.parse(localStorage.getItem('customerDetails')) || {
+            fullName: 'John Doe',
+            email: 'john.doe@email.com',
+            contact: '09123456789',
+            address: '123 Mabini Street, Baliuag City, Bulacan'
+        };
+        
+        // Get event details
+        const eventDate = localStorage.getItem('eventDate') || new Date().toISOString().split('T')[0];
+        const eventAddress = localStorage.getItem('eventAddress') || customerData.address;
+        
+        // Format date
+        const formatDate = (dateString) => {
+            const date = new Date(dateString);
+            return date.toLocaleDateString('en-US', { 
+                month: 'long', 
+                day: 'numeric', 
+                year: 'numeric' 
+            });
+        };
+        
+        // Calculate due date (7 days before event)
+        const calculateDueDate = (eventDateString) => {
+            const eventDate = new Date(eventDateString);
+            const dueDate = new Date(eventDate);
+            dueDate.setDate(eventDate.getDate() - 7);
+            return dueDate.toLocaleDateString('en-US', { 
+                month: 'long', 
+                day: 'numeric', 
+                year: 'numeric' 
+            });
+        };
+        
+        // Calculate totals
+        let packageTotal = 0;
+        let itemsHtml = '';
+        
+        // Add package to items
+        if (selectedPackage) {
+            packageTotal = selectedPackage.price * selectedPackage.qty;
+            itemsHtml += `
+                <tr>
+                    <td style="text-align: center;">${selectedPackage.qty}</td>
+                    <td>
+                        <strong>${selectedPackage.name} Package</strong><br>
+                        <small style="color: #666;">${selectedPackage.description || 'Catering package'}</small>
+                    </td>
+                    <td style="text-align: right;">₱${selectedPackage.price.toLocaleString()}</td>
+                    <td style="text-align: right;">₱${packageTotal.toLocaleString()}</td>
+                </tr>
+            `;
+        }
+        
+        // Calculate addons total
+        let addonsTotal = 0;
+        if (addons.length > 0) {
+            addons.forEach(item => {
+                const itemTotal = item.price * item.qty;
+                addonsTotal += itemTotal;
+                itemsHtml += `
+                    <tr>
+                        <td style="text-align: center;">${item.qty}</td>
+                        <td>
+                            <strong>${item.name}</strong><br>
+                            <small style="color: #666;">${item.description || 'Add-on item'}</small>
+                        </td>
+                        <td style="text-align: right;">₱${item.price.toLocaleString()}</td>
+                        <td style="text-align: right;">₱${itemTotal.toLocaleString()}</td>
+                    </tr>
+                `;
+            });
+        }
+        
+        // Calculate total order amount
+        const totalOrderAmount = packageTotal + addonsTotal;
+        const remainingBalance = totalOrderAmount - RESERVATION_FEE;
+        
+        // Format currency
+        const formatCurrency = (amount) => {
+            return `₱${amount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+        };
+        
+        // Generate invoice number
+        const today = new Date();
+        const invoiceNumber = 'INV-' + today.getFullYear() + '-' + 
+                             Math.floor(1000 + Math.random() * 9000).toString();
+        
+        // Format dates
+        const invoiceDate = today.toLocaleDateString('en-US', { 
+            month: '2-digit', 
+            day: '2-digit', 
+            year: 'numeric' 
+        });
+        
+        const formattedEventDate = formatDate(eventDate);
+        const dueDate = calculateDueDate(eventDate);
+        
+        // Update client information
+        document.getElementById('clientFullName').textContent = customerData.fullName || 'N/A';
+        document.getElementById('clientAddress').textContent = customerData.address || 'N/A';
+        document.getElementById('clientContact').textContent = customerData.contact || 'N/A';
+        document.getElementById('clientEmail').textContent = customerData.email || 'N/A';
+        
+        // Update event details
+        document.getElementById('eventDate').textContent = formattedEventDate;
+        document.getElementById('eventAddress').textContent = eventAddress || customerData.address || 'N/A';
+        
+        // Update invoice numbers and dates
+        document.getElementById('invoiceNumber').textContent = invoiceNumber;
+        document.getElementById('invoiceDate').textContent = invoiceDate;
+        document.getElementById('dueDate').textContent = dueDate;
+        
+        // Update amounts
+        document.getElementById('totalOrderAmount').textContent = formatCurrency(totalOrderAmount);
+        document.getElementById('subtotal').textContent = formatCurrency(totalOrderAmount);
+        document.getElementById('reservationFeeDisplay').textContent = formatCurrency(RESERVATION_FEE);
+        document.getElementById('reservationPaid').textContent = formatCurrency(RESERVATION_FEE);
+        document.getElementById('remainingBalance').textContent = formatCurrency(Math.max(0, remainingBalance));
+        document.getElementById('footerReservation').textContent = `-${formatCurrency(RESERVATION_FEE)}`;
+        document.getElementById('balanceDue').textContent = formatCurrency(Math.max(0, remainingBalance));
+        
+        // Update payment status based on remaining balance
+        const paymentStatus = document.getElementById('paymentStatus');
+        if (remainingBalance <= 0) {
+            paymentStatus.textContent = 'FULLY PAID';
+            paymentStatus.style.color = '#27ae60';
+        } else {
+            paymentStatus.textContent = 'PARTIALLY PAID - Reservation Fee';
+            paymentStatus.style.color = '#f39c12';
+        }
+        
+        // Insert items into table
+        document.getElementById('invoiceItems').innerHTML = itemsHtml || '<tr><td colspan="4" style="text-align: center;">No items selected</td></tr>';
+        
+        // Store invoice data for reference
+        sessionStorage.setItem('invoiceNumber', invoiceNumber);
+        sessionStorage.setItem('invoiceDate', invoiceDate);
+        sessionStorage.setItem('dueDate', dueDate);
+        
+        console.log('Invoice Generated:', {
+            invoiceNumber: invoiceNumber,
+            customer: customerData.fullName,
+            totalAmount: formatCurrency(totalOrderAmount),
+            reservationFee: formatCurrency(RESERVATION_FEE),
+            remainingBalance: formatCurrency(remainingBalance),
+            eventDate: formattedEventDate
+        });
+    });
+    </script>
+</body>
+</html>

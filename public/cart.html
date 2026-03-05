@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart - De Las Armas</title>
+    <link rel="icon" href="assets/img/de las armasa logo 3.png">
+    <link rel="stylesheet" href="assets/css/cart.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="cart-header">
+        <div class="header-container">
+            <div class="header-left">
+                <img src="assets/img/de las armasa logo 3 (1).png" alt="Logo" class="header-logo">
+                <h1>YOUR CART <i class="fa-solid fa-cart-shopping"></i></h1>
+            </div>
+            <div class="header-right">
+                <nav>
+                    <a href="home.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="packages_list.html">Packages</a>
+                    <a href="contact.html">Contact Us</a>
+                </nav>
+                <div class="brand-text">
+                    <h4>DE LAS ARMAS</h4>
+                    <p>Catering & Event Services</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="cart-main">
+        <div class="cart-grid">
+            <div class="cart-items">
+                <div class="cart-table-header">
+                    <span class="h-pkg">Package</span>
+                    <span class="h-price">Price</span>
+                    <span class="h-qty">Quantity</span>
+                    <span class="h-sub">Subtotal</span>
+                </div>
+
+                <div id="main-package-section"></div>
+
+                <div id="addons-section"></div>
+
+                <div class="action-row">
+                    <button class="trash-btn" onclick="toggleDeleteMode()"><i class="fa-solid fa-trash-can"></i></button>
+                    <div class="cart-buttons" id="default-buttons">
+                        <button class="btn-update" onclick="location.reload()">UPDATE CART</button>
+                        <a href="menu.html" class="btn-continue">CONTINUE SHOPPING</a>
+                    </div>
+                    <div class="cart-buttons hidden" id="delete-buttons">
+                        <button class="btn-cancel-action" onclick="toggleDeleteMode()">CANCEL</button>
+                        <button class="btn-delete-action" onclick="confirmDelete()">DELETE ALL</button>
+                    </div>
+                </div>
+
+                <div class="message-box">
+                    <label>Message/Concern (Optional)</label>
+                    <textarea placeholder="Please leave a message if you have concern"></textarea>
+                </div>
+            </div>
+
+            <div class="payment-sidebar">
+                <div class="sidebar-box">
+                    <h2 class="sidebar-title">CART TOTAL</h2>
+                    <div class="summary-divider"></div>
+                    <div class="summary-line">
+                        <span>Subtotal</span>
+                        <span class="bold">PHP 0</span>
+                    </div>
+                    <div class="summary-divider"></div>
+                    <div class="summary-line">
+                        <span>Discount</span>
+                        <span class="gray">PHP 0.00</span>
+                    </div>
+                    <div class="summary-divider"></div>
+                    <div class="summary-line total-row">
+                        <span>Total:</span>
+                        <span id="grand-total-display">PHP 0</span>
+                    </div>
+                    
+                    <h2 class="sidebar-title mt-40">PAYMENT METHOD</h2>
+                    <div class="gcash-section">
+                        <div class="gcash-logo-row">
+                            <img src="assets/img/G-cash.png" alt="GCash">
+                            <span>GCash</span>
+                        </div>
+                        <div class="payment-options-box">
+                            <label class="radio-item">
+                                <div class="radio-top">
+                                    Pay directly
+                                    <input type="radio" name="payment" checked>
+                                    <span class="checkmark"></span>
+                                </div>
+                                <span class="radio-desc">Complete this payment via GCash</span>
+                            </label>
+                            <div class="divider-line"></div>
+                            <label class="radio-item">
+                                <div class="radio-top">
+                                    Link GCash account
+                                    <input type="radio" name="payment">
+                                    <span class="checkmark"></span>
+                                </div>
+                                <span class="radio-desc">Link your GCash account</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="billing-check">
+                        <input type="checkbox" id="billing">
+                        <label for="billing">Billing address is same as shopping</label>
+                    </div>
+
+                    <a href="checkout.html" class="checkout-link">
+                        <button class="pay-button" id="full-pay-btn">PAY PHP 0</button>
+                    </a>
+                    <div class="split-pay-divider">
+                        <div class="line"></div>
+                        <span>Or pay at least 30%</span>
+                        <div class="line"></div>
+                    </div>
+                    <a href="checkout.html" class="checkout-link">
+                        <button class="pay-button" id="deposit-pay-btn">PAY PHP 0</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const formatPrice = (num) => num.toLocaleString('en-US');
+
+        function toggleDeleteMode() {
+            document.getElementById("default-buttons").classList.toggle("hidden");
+            const del = document.getElementById("delete-buttons");
+            del.classList.toggle("hidden");
+            del.style.display = del.classList.contains("hidden") ? "none" : "flex";
+        }
+
+        function confirmDelete() {
+            if(confirm("Are you sure you want to clear your cart?")) {
+                localStorage.removeItem('selectedPackage');
+                localStorage.removeItem('myCart');
+                location.reload();
+            }
+        }
+
+        function syncUI() {
+            const pkgData = JSON.parse(localStorage.getItem('selectedPackage'));
+            const cartData = JSON.parse(localStorage.getItem('myCart')) || [];
+            
+            const mainContainer = document.getElementById('main-package-section');
+            const addonsContainer = document.getElementById('addons-section');
+            
+            let grandTotal = 0;
+
+            // 1. RENDER MAIN PACKAGE
+            if (pkgData) {
+                const sub = pkgData.price * pkgData.qty;
+                grandTotal += sub;
+                mainContainer.innerHTML = `
+                    <div class="cart-row main-item">
+                        <div class="col-pkg">
+                            <img src="assets/img/CP.png" alt="Package" style="width:50px; height:50px; object-fit:cover; border-radius:5px;">
+                            <h3>${pkgData.name}</h3>
+                        </div>
+                        <div class="col-price">${formatPrice(pkgData.price)}</div>
+                        <div class="col-qty">
+                            <div class="stepper">
+                                <button onclick="updatePkgQty(-1)">-</button>
+                                <span>${pkgData.qty}</span>
+                                <button onclick="updatePkgQty(1)">+</button>
+                            </div>
+                        </div>
+                        <div class="col-sub">${formatPrice(sub)}</div>
+                    </div>`;
+            } else {
+                // This is the part you requested:
+                mainContainer.innerHTML = `
+                    <div style="padding: 40px; text-align: center; background: #f9f9f9; border-radius: 8px; margin: 20px 0;">
+                        <p style="color: #666; font-size: 16px; margin-bottom: 15px;">No main package selected.</p>
+                        <a href="packages_list.html" style="
+                            display: inline-block;
+                            padding: 10px 25px;
+                            background-color: #19276F; /* Match your brand color */
+                            color: white;
+                            text-decoration: none;
+                            border-radius: 5px;
+                            font-weight: bold;
+                            transition: background 0.3s;
+                        ">VIEW OUR PACKAGES</a>
+                    </div>`;
+            }
+
+            // 2. RENDER ADDONS
+            addonsContainer.innerHTML = '<div class="adds-on-label">Add-ons</div>';
+            if (cartData.length === 0) {
+                addonsContainer.innerHTML += '<p style="padding: 10px 0 20px 40px; color: #999;">No add-ons added.</p>';
+            } else {
+                cartData.forEach((item, index) => {
+                    const sub = item.price * item.qty;
+                    grandTotal += sub;
+                    addonsContainer.innerHTML += `
+                        <div class="cart-row addons-group">
+                            <div class="group-title">${item.name}</div>
+                            <div class="sub-row">
+                                <div class="sub-name">Standard Order</div>
+                                <div class="sub-price">${formatPrice(item.price)}</div>
+                                <div class="sub-qty">
+                                    <div class="stepper">
+                                        <button onclick="updateAddonQty(${index}, -1)">-</button>
+                                        <span>${item.qty}</span>
+                                        <button onclick="updateAddonQty(${index}, 1)">+</button>
+                                    </div>
+                                </div>
+                                <div class="sub-total">${formatPrice(sub)}</div>
+                            </div>
+                        </div>`;
+                });
+            }
+
+            // 3. UPDATE TOTALS
+            document.querySelectorAll('.summary-line .bold, #grand-total-display').forEach(el => {
+                el.textContent = 'PHP ' + formatPrice(grandTotal);
+            });
+
+            document.getElementById('full-pay-btn').textContent = 'PAY PHP ' + formatPrice(grandTotal);
+            document.getElementById('deposit-pay-btn').textContent = 'PAY PHP ' + formatPrice(Math.round(grandTotal * 0.3));
+            
+            window.currentTotal = grandTotal;
+        }
+
+        window.updatePkgQty = function(change) {
+            let pkg = JSON.parse(localStorage.getItem('selectedPackage'));
+            if (!pkg) return;
+            pkg.qty = Math.max(1, pkg.qty + change);
+            localStorage.setItem('selectedPackage', JSON.stringify(pkg));
+            syncUI();
+        };
+
+        window.updateAddonQty = function(index, change) {
+            let cart = JSON.parse(localStorage.getItem('myCart')) || [];
+            cart[index].qty += change;
+            if (cart[index].qty <= 0) cart.splice(index, 1);
+            localStorage.setItem('myCart', JSON.stringify(cart));
+            syncUI();
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            syncUI();
+            document.querySelectorAll('.checkout-link').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    if ((window.currentTotal || 0) <= 0) {
+                        e.preventDefault();
+                        alert("Your cart is empty!");
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
