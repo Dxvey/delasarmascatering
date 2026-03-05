@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointments - De Las Armas</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="icon" href="assets/img/de las armasa logo 3.png">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/appointments.css">
+</head>
+<body>
+
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <div class="logo-text">
+                <h3>DE LAS ARMAS</h3>
+                <p>Catering & Event Services</p>
+            </div>
+        </div>
+
+        <ul class="sidebar-menu">
+            <li>
+                <a href="dashboard.html"><i class='bx bxs-dashboard'></i> <span>Dashboard</span></a>
+            </li>
+            <li class="active">
+                <a href="appointments.html"><i class='bx bx-calendar'></i> <span>Appointments</span></a>
+            </li>
+            <li>
+                <a href="reviews.html"><i class='bx bxs-bell'></i> <span>Reviews</span></a>
+            </li>
+            <li>
+                <a href="reporting.html"><i class='bx bx-line-chart'></i> <span>Reporting</span></a>
+            </li>
+            <li>
+                <a href="manage.html"><i class='bx bx-folder'></i> <span>Manage</span></a>
+            </li>
+        </ul>
+    </aside>
+
+    <div class="main-content">
+        <header>
+            <div class="header-actions">
+                <div class="profile">
+                    <a href="#">
+                        <img src="assets/img/Avatar 1.png" alt="Profile">
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <div class="page-header">
+                <h1>Manage Appointments</h1>
+                <button class="add-btn"><i class='bx bx-plus'></i> Add Appointment</button>
+            </div>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Phone Number</th>
+                            <th>Appointment Date & Time <i class='bx bxs-sort-alt'></i></th>
+                            <th>Status</th>
+                            <th></th> </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="highlight-row">
+                            <td>Jane</td>
+                            <td>Dela Cruz</td>
+                            <td>+63 9876543210</td>
+                            <td>13-May-2025 at 10:00 AM</td>
+                            <td><span class="status-btn paid">Paid</span></td>
+                            <td class="action-cell">
+                                <button class="view-btn">View</button>
+                                <i class='bx bx-trash delete-icon'></i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Rafael</td>
+                            <td>Santos</td>
+                            <td>+63 9876543210</td>
+                            <td>13-May-2025 at 11:00 AM</td>
+                            <td><span class="status-btn paid">Paid</span></td>
+                            <td class="action-cell">
+                                <button class="view-btn">View</button>
+                                <i class='bx bx-trash delete-icon'></i>
+                            </td>
+                        </tr>
+                        <tr class="highlight-row">
+                            <td>Eubert</td>
+                            <td>Dungca</td>
+                            <td>+63 9876543210</td>
+                            <td>13-May-2025 at 8:00 AM</td>
+                            <td><span class="status-btn paid">Paid</span></td>
+                            <td class="action-cell">
+                                <button class="view-btn">View</button>
+                                <i class='bx bx-trash delete-icon'></i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Adrian</td>
+                            <td>Tabita</td>
+                            <td>+63 9876543210</td>
+                            <td>13-May-2025 at 10:00 AM</td>
+                            <td><span class="status-btn down-payment">Down Payment</span></td>
+                            <td class="action-cell">
+                                <button class="view-btn">View</button>
+                                <i class='bx bx-trash delete-icon'></i>
+                            </td>
+                        </tr>
+                        <tr class="highlight-row">
+                            <td>Leslie</td>
+                            <td>Castro</td>
+                            <td>+63 9876543210</td>
+                            <td>13-May-2025 at 4:00 PM</td>
+                            <td><span class="status-btn down-payment">Down Payment</span></td>
+                            <td class="action-cell">
+                                <button class="view-btn">View</button>
+                                <i class='bx bx-trash delete-icon'></i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Nina</td>
+                            <td>Sta. Maria</td>
+                            <td>+63 9876543210</td>
+                            <td>13-Jun-2025 at 1:00 PM</td>
+                            <td><span class="status-btn paid">Paid</span></td>
+                            <td class="action-cell">
+                                <button class="view-btn">View</button>
+                                <i class='bx bx-trash delete-icon'></i>
+                            </td>
+                        </tr>
+                        <tr class="highlight-row">
+                            <td>Darlene</td>
+                            <td>Chico</td>
+                            <td>+63 9876543210</td>
+                            <td>13-Jun-2025 at 10:00 AM</td>
+                            <td><span class="status-btn down-payment">Down Payment</span></td>
+                            <td class="action-cell">
+                                <button class="view-btn">View</button>
+                                <i class='bx bx-trash delete-icon'></i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Ronald</td>
+                            <td>Dela Merced</td>
+                            <td>+63 9876543210</td>
+                            <td>13-Jun-2025 at 11:00 AM</td>
+                            <td><span class="status-btn down-payment">Down Payment</span></td>
+                            <td class="action-cell">
+                                <button class="view-btn">View</button>
+                                <i class='bx bx-trash delete-icon'></i>
+                            </td>
+                        </tr>
+                        <tr class="highlight-row">
+                            <td>Kathryn</td>
+                            <td>Guanzing</td>
+                            <td>+63 9876543210</td>
+                            <td>13-Jun-2025 at 6:00 PM</td>
+                            <td><span class="status-btn down-payment">Down Payment</span></td>
+                            <td class="action-cell">
+                                <button class="view-btn">View</button>
+                                <i class='bx bx-trash delete-icon'></i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Darrell</td>
+                            <td>Justiniano</td>
+                            <td>+63 9876543210</td>
+                            <td>13-Jun-2025 at 10:00 AM</td>
+                            <td><span class="status-btn down-payment">Down Payment</span></td>
+                            <td class="action-cell">
+                                <button class="view-btn">View</button>
+                                <i class='bx bx-trash delete-icon'></i>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="pagination">
+                <a href="#" class="page-link">Previous</a>
+                <a href="#" class="page-num active">1</a>
+                <a href="#" class="page-num">2</a>
+                <a href="#" class="page-num">3</a>
+                <a href="#" class="page-link">Next</a>
+            </div>
+
+        </main>
+    </div>
+    <script src="js/appointments-script.js"></script>
+</body>
+</html>

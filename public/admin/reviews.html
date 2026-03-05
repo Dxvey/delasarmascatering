@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reviews - De Las Armas</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="icon" href="/assets/img/de las armasa logo 3.png">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/reviews.css">
+</head>
+<body>
+
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <div class="logo-text">
+                <h3>DE LAS ARMAS</h3>
+                <p>Catering & Event Services</p>
+            </div>
+        </div>
+
+        <ul class="sidebar-menu">
+            <li>
+                <a href="dashboard.html"><i class='bx bxs-dashboard'></i> <span>Dashboard</span></a>
+            </li>
+            <li>
+                <a href="appointments.html"><i class='bx bx-calendar'></i> <span>Appointments</span></a>
+            </li>
+            <li class="active">
+                <a href="reviews.html"><i class='bx bxs-bell'></i> <span>Reviews</span></a>
+            </li>
+            <li>
+                <a href="reporting.html"><i class='bx bx-line-chart'></i> <span>Reporting</span></a>
+            </li>
+            <li>
+                <a href="manage.html"><i class='bx bx-folder'></i> <span>Manage</span></a>
+            </li>
+        </ul>
+    </aside>
+
+    <div class="main-content">
+        <header>
+            <div class="header-actions">
+                <div class="profile">
+                    <a href="adminlogin.html">
+                        <img src="/assets/img/Avatar 1.png" alt="Profile">
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <div class="reviews-card">
+                <div class="reviews-title-section">
+                    <h2>Reviews</h2>
+                    <div class="title-underline"></div>
+                    <div class="full-divider"></div>
+                </div>
+
+                <table class="reviews-table">
+                    <thead>
+                        <tr>
+                            <th>CLIENT NAME</th>
+                            <th>RATING <i class='bx bxs-sort-alt'></i></th>
+                            <th>PACKAGE <i class='bx bxs-sort-alt'></i></th>
+                            <th>STATUS</th>
+                            <th>REVIEW DATE</th>
+                            <th>ATTACHMENTS</th>
+                        </tr>
+                    </thead>
+                    <tbody id="adminReviewTable">
+                        <tr>
+                            <td>
+                                <div class="client-info">
+                                    <img src="/assets/img/Avatar 6.png" alt="Client">
+                                    <span>Nikka Viray</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="rating">
+                                    <i class='bx bxs-star'></i> 4.0
+                                </div>
+                            </td>
+                            <td>Basic Package</td>
+                            <td>Checked</td>
+                            <td>12/02/24</td>
+                            <td>
+                                <div class="attachment">
+                                    <i class='bx bx-paperclip'></i> 3 files
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="client-info">
+                                    <img src="/assets/img/Avatar 7.png" alt="Client">
+                                    <span>Ryza Lapuz</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="rating">
+                                    <i class='bx bxs-star'></i> 3.5
+                                </div>
+                            </td>
+                            <td>Birthday Package</td>
+                            <td>Checked</td>
+                            <td>18/02/24</td>
+                            <td>
+                                <div class="attachment">
+                                    <i class='bx bx-paperclip'></i> 1 file
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="client-info">
+                                    <img src="/assets/img/Avatar 8.png" alt="Client">
+                                    <span>Michael Dizon</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="rating">
+                                    <i class='bx bxs-star'></i> 4.5
+                                </div>
+                            </td>
+                            <td>Wedding Package</td>
+                            <td>Checked</td>
+                            <td>13/02/24</td>
+                            <td>
+                                <div class="attachment">
+                                    <i class='bx bx-paperclip'></i> 1 file
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="client-info">
+                                    <img src="/assets/img/Avatar 9.png" alt="Client">
+                                    <span>Tristan Chavez</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="rating">
+                                    <i class='bx bxs-star'></i> 4.5
+                                </div>
+                            </td>
+                            <td>Corporate Package</td>
+                            <td>Unchecked</td>
+                            <td>05/03/24</td>
+                            <td>
+                                <div class="attachment">
+                                    <i class='bx bx-paperclip'></i> 3 files
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="client-info">
+                                    <img src="/assets/img/Avatar 10.png" alt="Client">
+                                    <span>Freddy Estrella</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="rating">
+                                    <i class='bx bxs-star'></i> 5.0
+                                </div>
+                            </td>
+                            <td>Debut Package</td>
+                            <td>Unchecked</td>
+                            <td>24/12/24</td>
+                            <td>
+                                <div class="attachment">
+                                    <i class='bx bx-paperclip'></i> 2 files
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </main>
+    </div>
+    <script>
+        async function loadAdminReviews() {
+            try {
+                // Note: Ensure your admin server is running on port 4000
+                const response = await fetch('http://localhost:4000/api/admin/reviews');
+                const reviews = await response.json();
+                const tableBody = document.getElementById('adminReviewTable');
+                
+                if (reviews.length === 0) {
+                    tableBody.innerHTML = "<tr><td colspan='6' style='text-align:center;'>No reviews found.</td></tr>";
+                    return;
+                }
+
+                tableBody.innerHTML = reviews.map(rev => `
+                    <tr>
+                        <td>
+                            <div class="client-info">
+                                <img src="/assets/img/Avatar 1.png" alt="Client">
+                                <span>${rev.fName || 'Unknown User'}</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="rating">
+                                <i class='bx bxs-star'></i> ${rev.rating}.0
+                            </div>
+                        </td>
+                        <td>${rev.comment}</td>
+                        <td><span class="status-tag">Unchecked</span></td>
+                        <td>${new Date(rev.created_at).toLocaleDateString()}</td>
+                        <td>#${rev.id}</td>
+                    </tr>
+                `).join('');
+            } catch (err) {
+                console.error("Failed to load reviews", err);
+                document.getElementById('adminReviewTable').innerHTML = "<tr><td colspan='6'>Error loading data. Check console.</td></tr>";
+            }
+        }
+
+        // IMPORTANT: Call the function when the page loads
+        window.onload = loadAdminReviews;
+    </script>
+</body>
+</html>

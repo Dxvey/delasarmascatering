@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage - De Las Armas</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="icon" href="assets/img/de las armasa logo 3.png">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/manage.css">
+</head>
+<body>
+
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <div class="logo-text">
+                <h3>DE LAS ARMAS</h3>
+                <p>Catering & Event Services</p>
+            </div>
+        </div>
+
+        <ul class="sidebar-menu">
+            <li>
+                <a href="dashboard.html"><i class='bx bxs-dashboard'></i> <span>Dashboard</span></a>
+            </li>
+            <li>
+                <a href="appointments.html"><i class='bx bx-calendar'></i> <span>Appointments</span></a>
+            </li>
+            <li>
+                <a href="reviews.html"><i class='bx bxs-bell'></i> <span>Reviews</span></a>
+            </li>
+            <li>
+                <a href="reporting.html"><i class='bx bx-line-chart'></i> <span>Reporting</span></a>
+            </li>
+            <li class="active">
+                <a href="manage.html"><i class='bx bx-folder'></i> <span>Manage</span></a>
+            </li>
+        </ul>
+    </aside>
+
+    <div class="main-content">
+        <header>
+            <div class="header-actions">
+                <div class="profile">
+                    <a href="#">
+                        <img src="assets/img/Avatar 1.png" alt="Profile">
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            
+            <div class="card manage-card mb-25">
+                <div class="manage-header">
+                    <h2>Menu And Services</h2>
+                    
+                    <div class="filter-controls">
+                        <span>Filter :</span>
+                        <button class="filter-btn outline">Like</button>
+                        <button class="filter-btn outline">View</button>
+                        <button class="filter-btn solid">Date</button>
+                        
+                        <div class="sort-arrows">
+                            <img src="assets/img/Arrow up.png" alt="Sort Up">
+                            <img src="assets/img/Arrow down.png" alt="Sort Down">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-table-header">
+                    <span>Course Name</span>
+                    <span>Thumbnail</span>
+                    <span>Price</span>
+                    <span>View</span>
+                    <span>Orders</span>
+                    <span>Date Added</span>
+                    <span></span>
+                </div>
+
+                <div class="menu-list">
+                    <div class="loading-spinner">Loading items...</div>
+                </div>
+            </div>
+            <div class="calendar-box" id="adminCalendarGrid">
+                <div class="calendar-header">
+                    <h2>March 2026</h2>
+                    <div class="arrows">
+                        <span>&#10094;</span>
+                        <span>&#10095;</span>
+                    </div>
+                </div>
+                            
+                <div class="calendar-grid">
+                    <div class="weekday">Mo</div>
+                    <div class="weekday">Tu</div>
+                    <div class="weekday">We</div>
+                    <div class="weekday">Th</div>
+                    <div class="weekday">Fr</div>
+                    <div class="weekday">Sa</div>
+                    <div class="weekday">Su</div>
+
+                <div class="dates" id="calendar-dates"></div>
+            </div>
+        </main>
+    </div>
+    <script>
+        let currentDisplayDate = new Date(2026, 2, 1); // March 2026
+
+        async function renderAdminCalendar() {
+            const grid = document.querySelector('.calendar-grid');
+            const year = currentDisplayDate.getFullYear();
+            const month = currentDisplayDate.getMonth();
+
+            const monthName = currentDisplayDate.toLocaleString('default', { month: 'long' });
+            const monthDisplay = document.querySelector('.calendar-header h2');
+            monthDisplay.innerText = `${monthName} ${year}`;
+
+            // Clear previous days but keep weekdays
+            const weekdays = grid.querySelectorAll('.weekday');
+            grid.innerHTML = `
+            <div class="weekday">Su</div>
+            <div class="weekday">Mo</div>
+            <div class="weekday">Tu</div>
+            <div class="weekday">We</div>
+            <div class="weekday">Th</div>
+            <div class="weekday">Fr</div>
+            <div class="weekday">Sa</div>
+            `;
+
+            const firstDayIndex = new Date(year, month, 1).getDay();
+            const lastDay = new Date(year, month + 1, 0).getDate();
+
+            // Fetch reservations/orders for the month
+            let reservations = [];
+            try {
+                const response = await fetch(`/api/admin-calendar?year=${year}&month=${month+1}`);
+                if (response.ok) reservations = await response.json();
+            } catch (err) {
+                console.error("Failed to fetch reservations:", err);
+            }
+
+            // Add blank spaces for previous month
+            for (let i = 0; i < firstDayIndex; i++) {
+                const emptyDiv = document.createElement('div');
+                emptyDiv.classList.add('day', 'fade');
+                grid.appendChild(emptyDiv);
+            }
+
+            // Add actual days
+            for (let i = 1; i <= lastDay; i++) {
+                const dayDiv = document.createElement('div');
+                dayDiv.classList.add('day');
+                const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(i).padStart(2, '0')}`;
+                dayDiv.setAttribute('data-date', dateStr);
+                dayDiv.innerText = i;
+
+                // Color logic
+                const orders = reservations.filter(r => r.date === dateStr);
+                if (orders.length >= 2) dayDiv.classList.add('full');
+                else if (orders.length === 1) dayDiv.classList.add('busy');
+                else dayDiv.classList.add('free');
+
+                // Click event to show details
+                dayDiv.addEventListener('click', () => showReservations(orders, dateStr));
+
+                grid.appendChild(dayDiv);
+            }
+        }
+
+        // Show reservations in modal
+        function showReservations(orders, dateStr) {
+            const modal = document.getElementById('reservationModal');
+            const list = document.getElementById('reservationList');
+
+            if (orders.length === 0) {
+                list.innerHTML = `<p>No reservations for ${dateStr}</p>`;
+            } else {
+                list.innerHTML = orders.map(o => `
+                    <div class="reservation-item">
+                        <p><strong>Customer:</strong> ${o.customer_name}</p>
+                        <p><strong>Package:</strong> ${o.package}</p>
+                        <p><strong>Time:</strong> ${o.time}</p>
+                    </div>
+                    <hr>
+                `).join('');
+            }
+
+            modal.classList.add('active');
+        }
+
+        // Close modal
+        document.querySelectorAll('.close-modal').forEach(btn => {
+            btn.addEventListener('click', () => {
+                btn.closest('.center-modal-overlay').classList.remove('active');
+            });
+        });
+
+        // Month navigation
+        document.querySelector('.arrows span:first-child').addEventListener('click', () => {
+            currentDisplayDate.setMonth(currentDisplayDate.getMonth() - 1);
+            renderAdminCalendar();
+        });
+        document.querySelector('.arrows span:last-child').addEventListener('click', () => {
+            currentDisplayDate.setMonth(currentDisplayDate.getMonth() + 1);
+            renderAdminCalendar();
+        });
+
+        // Initial load
+        renderAdminCalendar();
+    </script>
+</body>
+</html>
