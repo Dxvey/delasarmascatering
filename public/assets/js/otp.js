@@ -31,7 +31,7 @@ if (otpVerifyBtn) {
         }
 
         try {
-            const response = await fetch('http://localhost:3001/verify-otp', {
+            const response = await fetch('https://delasarmascatering.onrender.com/verify-otp', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email, otp })
@@ -113,7 +113,7 @@ resendBtn.addEventListener('click', async () => {
     if (!email) return alert("No email found");
 
     try {
-        const response = await fetch('http://localhost:3001/send-code', {
+        const response = await fetch('https://delasarmascatering.onrender.com/send-code', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email })

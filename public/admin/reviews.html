@@ -239,8 +239,8 @@
     </div>
 
     <script>
-    const ADMIN_API = 'http://localhost:4000';
-    const MAIN_API  = 'http://localhost:3001';
+    const ADMIN_API = 'https://delasarmascatering.onrender.com/admin';
+    const MAIN_API  = 'https://delasarmascatering.onrender.com';
 
     function getAdmin() { try { return JSON.parse(localStorage.getItem('adminUser')) || {}; } catch { return {}; } }
     function saveAdmin(obj) { localStorage.setItem('adminUser', JSON.stringify(obj)); }

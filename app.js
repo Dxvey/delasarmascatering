@@ -164,7 +164,7 @@ app.post('/signup', async (req, res) => {
                                     Your account is now active. Browse our packages and book your next event!
                                 </p>
                                 <div style="text-align:center;margin:24px 0;">
-                                    <a href="http://localhost:3001/home.html"
+                                    <a href="https://delasarmascatering.onrender.com/home.html"
                                        style="background:#19276F;color:#fff;padding:14px 40px;
                                               text-decoration:none;border-radius:50px;font-size:14px;
                                               font-weight:bold;display:inline-block;">

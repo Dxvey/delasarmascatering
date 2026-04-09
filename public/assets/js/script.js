@@ -2,7 +2,7 @@
 //  De Las Armas — script.js
 // =============================================================
 
-const API_URL = 'http://localhost:3001';
+const API_URL = 'https://delasarmascatering.onrender.com';
 
 // ── Small helpers ─────────────────────────────────────────────
 function isEmailFormat(e) { return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(e.trim()); }

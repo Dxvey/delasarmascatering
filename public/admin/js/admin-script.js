@@ -4,7 +4,7 @@ async function handleLogin(e) {
     const email    = e.target.querySelector('input[type="email"]').value;
     const password = e.target.querySelector('input[type="password"]').value;
     try {
-        const res  = await fetch(`http://localhost:4000/login`, {
+        const res  = await fetch(`https://delasarmascatering.onrender.com/admin/login`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email, password })

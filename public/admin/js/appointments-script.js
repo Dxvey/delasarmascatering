@@ -1,6 +1,6 @@
 async function loadAppointments() {
     try {
-        const response = await fetch('http://localhost:4000/all-appointments');
+        const response = await fetch('https://delasarmascatering.onrender.com/admin/all-appointments');
         const data = await response.json();
         
         const tableBody = document.querySelector('tbody');

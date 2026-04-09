@@ -1,6 +1,6 @@
 async function loadMenuManagement() {
     try {
-        const response = await fetch('http://localhost:4000/api/menu');
+        const response = await fetch('https://delasarmascatering.onrender.com/admin/api/menu');
         const items = await response.json();
         const listContainer = document.querySelector('.menu-list');
         
@@ -36,7 +36,7 @@ window.editMenuItem = async (id, oldName, oldPrice) => {
     const newPrice = prompt("Edit Price:", oldPrice);
 
     if (newName && newPrice) {
-        const res = await fetch(`http://localhost:4000/api/menu/${id}`, {
+        const res = await fetch(`https://delasarmascatering.onrender.com/admin/api/menu/${id}`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ courseName: newName, price: newPrice })
@@ -47,7 +47,7 @@ window.editMenuItem = async (id, oldName, oldPrice) => {
 
 window.deleteMenuItem = async (id) => {
     if (confirm("Delete this package?")) {
-        await fetch(`http://localhost:4000/api/menu/${id}`, { method: 'DELETE' });
+        await fetch(`https://delasarmascatering.onrender.com/admin/api/menu/${id}`, { method: 'DELETE' });
         loadMenuManagement();
     }
 };
