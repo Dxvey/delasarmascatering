@@ -786,6 +786,12 @@ app.post('/api/cart/sync', (req, res) => { const { userId, localCart } = req.bod
 
 // ==================== ADMIN ROUTES ====================
 adminApp.get('/', (req, res) => res.sendFile(path.join(__dirname, 'public', 'admin', 'adminlogin.html')));
+adminApp.get('/adminlogin.html', (req, res) => res.sendFile(path.join(__dirname, 'public', 'admin', 'adminlogin.html')));
+adminApp.get('/dashboard.html', (req, res) => res.sendFile(path.join(__dirname, 'public', 'admin', 'dashboard.html')));
+adminApp.get('/appointments.html', (req, res) => res.sendFile(path.join(__dirname, 'public', 'admin', 'appointments.html')));
+adminApp.get('/manage.html', (req, res) => res.sendFile(path.join(__dirname, 'public', 'admin', 'manage.html')));
+adminApp.get('/reporting.html', (req, res) => res.sendFile(path.join(__dirname, 'public', 'admin', 'reporting.html')));
+adminApp.get('/reviews.html', (req, res) => res.sendFile(path.join(__dirname, 'public', 'admin', 'reviews.html')));
 adminApp.post('/login', async (req, res) => { const { email, password } = req.body; if (email==="admin@admin.com" && password==="admin123") return res.status(200).json({ message: "Welcome to the Gateway, Admin." }); db.query("SELECT * FROM admins WHERE email=?", [email], async (err, results) => { if (err) return res.status(500).json({ message: "Server error" }); if (!results.length) return res.status(401).json({ message: "Invalid Admin Credentials" }); if (!await bcrypt.compare(password, results[0].password)) return res.status(401).json({ message: "Invalid Admin Credentials" }); res.status(200).json({ message: "Welcome to the Gateway, Admin." }); }); });
 adminApp.get('/dashboard', (req, res) => {
     db.query(
@@ -1201,8 +1207,6 @@ app.use((req,res)=>res.status(404).json({message:"Route not found"}));
 app.use((err,req,res,next)=>res.status(500).json({message:"Internal server error"}));
 
 app.use('/admin', express.static(path.join(__dirname, 'public', 'admin')));
-
-// Mount all adminApp routes under /admin
 app.use('/admin', adminApp);
 
 const PORT = process.env.PORT || 3001;

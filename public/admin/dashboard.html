@@ -361,8 +361,8 @@
     <script src="js/admin-script.js"></script>
 
     <script>
-    const ADMIN_API = 'http://localhost:4000';
-    const MAIN_API  = 'http://localhost:3001';
+    const ADMIN_API = window.location.origin + '/api/admin';
+    const MAIN_API = window.location.origin;
 
     function getAdmin()       { try { return JSON.parse(localStorage.getItem('adminUser')) || {}; } catch { return {}; } }
     function saveAdmin(obj)   { localStorage.setItem('adminUser', JSON.stringify(obj)); }
