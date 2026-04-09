@@ -1203,11 +1203,12 @@ adminApp.post('/api/seed-menu', (req, res) => {
     });
 });
 
+app.use('/admin', express.static(path.join(__dirname, 'public', 'admin')));
+app.use('/admin', adminApp);
+
 app.use((req,res)=>res.status(404).json({message:"Route not found"}));
 app.use((err,req,res,next)=>res.status(500).json({message:"Internal server error"}));
 
-app.use('/admin', express.static(path.join(__dirname, 'public', 'admin')));
-app.use('/admin', adminApp);
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
