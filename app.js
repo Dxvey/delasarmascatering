@@ -785,7 +785,6 @@ app.post('/api/cart/clear', (req, res) => { const { userId } = req.body; if (!us
 app.post('/api/cart/sync', (req, res) => { const { userId, localCart } = req.body; if (!userId||!localCart) return res.status(400).json({ message: 'Missing fields' }); db.query('DELETE FROM carts WHERE user_id=?', [userId], err => { if (err) return res.status(500).json({ message: 'Sync failed' }); if (localCart.package) db.query('INSERT INTO carts (user_id,product_id,product_type,quantity) VALUES (?,?,?,?)', [userId,localCart.package.id,'package',localCart.package.qty]); if (localCart.addons?.length) { db.query('INSERT INTO carts (user_id,product_id,product_type,quantity) VALUES ?', [localCart.addons.map(i=>[userId,i.id,'addon',i.qty])], err => { if (err) return res.status(500).json({ message: 'Addon sync failed' }); res.json({ message: 'Synced' }); }); } else { res.json({ message: 'Synced' }); } }); });
 
 // ==================== ADMIN ROUTES ====================
-adminApp.use(express.static(path.join(__dirname, 'public', 'admin')));
 adminApp.get('/', (req, res) => res.sendFile(path.join(__dirname, 'public', 'admin', 'adminlogin.html')));
 adminApp.post('/login', async (req, res) => { const { email, password } = req.body; if (email==="admin@admin.com" && password==="admin123") return res.status(200).json({ message: "Welcome to the Gateway, Admin." }); db.query("SELECT * FROM admins WHERE email=?", [email], async (err, results) => { if (err) return res.status(500).json({ message: "Server error" }); if (!results.length) return res.status(401).json({ message: "Invalid Admin Credentials" }); if (!await bcrypt.compare(password, results[0].password)) return res.status(401).json({ message: "Invalid Admin Credentials" }); res.status(200).json({ message: "Welcome to the Gateway, Admin." }); }); });
 adminApp.get('/dashboard', (req, res) => {
@@ -1201,6 +1200,9 @@ adminApp.post('/api/seed-menu', (req, res) => {
 app.use((req,res)=>res.status(404).json({message:"Route not found"}));
 app.use((err,req,res,next)=>res.status(500).json({message:"Internal server error"}));
 
+app.use('/admin', express.static(path.join(__dirname, 'public', 'admin')));
+
+// Mount all adminApp routes under /admin
 app.use('/admin', adminApp);
 
 const PORT = process.env.PORT || 3001;
